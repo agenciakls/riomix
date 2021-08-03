@@ -1,8 +1,7 @@
 
 import React from 'react'
-import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, Image, Platform, FlatList } from 'react-native'
-import { FontAwesome5 } from '@expo/vector-icons'
-import { NavigationContainer } from '@react-navigation/native';
+import { View, StyleSheet, SafeAreaView, Platform, FlatList } from 'react-native'
+import Header from '../src/modules/header';
 
 const DATA = [
     { id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b1', title: 'Primeiro Item', },
@@ -18,7 +17,7 @@ const DATA = [
 
 import { renderItem } from '../src/modules/list';
 
-export default class News extends React.Component {
+export default class Products extends React.Component {
     
     render() {
         return(
@@ -28,13 +27,7 @@ export default class News extends React.Component {
                 <SafeAreaView
                     style={styles.safearea}
                 >
-                    <View style={styles.topBar} >
-                        <Image source={require('./../assets/logo-white.png')} style={styles.logoImg} />
-                        <TouchableOpacity style={styles.touchable}>
-                            <FontAwesome5 name="bars" size={26} color="#198942" 
-                            onPress={this.props.navigation.openDrawer} /> 
-                        </TouchableOpacity>
-                    </View>
+                    <Header click={this.props.navigation.openDrawer} />
                     <FlatList
                         data={DATA}
                         renderItem={renderItem}
@@ -55,23 +48,6 @@ const styles = StyleSheet.create({
     safearea: {
         width: "100%",
         color: 'white'
-    },
-    topBar: {
-        flexDirection: 'row',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: '100%',
-        padding: 5,
-        backgroundColor: '#1F265B',
-    },
-    logoImg: {
-        width: 70,
-        height: 14,
-        margin: 10
-    },
-    touchable: {
-        padding: 10
     },
     text: {
         color: "#161924",

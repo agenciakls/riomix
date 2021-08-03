@@ -4,11 +4,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { View, StyleSheet, TouchableOpacity, Image } from 'react-native'
 
 export default class Home extends React.Component {
-    render({navigation}) {
+    render() {
         return(
             <View style={styles.topBar} >
                 <Image source={require('./../../assets/logo-white.png')} style={styles.logoImg} />
-                <TouchableOpacity style={styles.touchable} onPress={navigation}>
+                <TouchableOpacity style={styles.touchable} onPress={this.props.click}>
                     <FontAwesome5 name="bars" size={26} color="#198942" /> 
                 </TouchableOpacity>
             </View>

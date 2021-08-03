@@ -17,7 +17,7 @@ const DATA = [
 
 import { renderItem } from '../src/modules/list';
 
-export default class Home extends React.Component {
+export default class About extends React.Component {
     
     render() {
         return(
@@ -27,7 +27,7 @@ export default class Home extends React.Component {
                 <SafeAreaView
                     style={styles.safearea}
                 >
-                    <Header navigation={this.props.navigation.openDrawer} />
+                    <Header click={this.props.navigation.openDrawer} />
                     <FlatList
                         data={DATA}
                         renderItem={renderItem}
