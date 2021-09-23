@@ -16,7 +16,6 @@ export default class Home extends React.Component {
                     style={styles.safearea}
                 >
                     <Header click={this.props.navigation.openDrawer} />
-                    
                 </SafeAreaView>
             </View>
         )
