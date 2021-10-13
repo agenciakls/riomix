@@ -1,24 +1,44 @@
 
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
-export const Item = ({ title }) => (
+export const Item = ({ item }) => (
 <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
+    <View>
+        <Image style={StyleSheet.imgNoticias} source={require('../../assets/example/example-new-list.png')} />
+    </View>
+    <View style={styles.boxText}>
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.content}>{item.content}</Text>
+    </View>
 </View>
 );
 export const renderItem = ({ item }) => (
-    <Item title={item.title} />
+    <Item item={item} />
 );
 
 const styles = StyleSheet.create({
     item: {
         backgroundColor: '#dedede',        
-        padding: 50,
-        margin: 15,
-        borderRadius: 10
-    },
-    title: {
+        borderRadius: 10,
+        flexDirection: 'row',
+        marginVertical: 5,
         
-    }
+    },
+    boxText: {
+        flex: 1,
+        padding: 10,
+    },
+    imgNoticias: {
+        borderTopLeftRadius: 20,
+        borderBottomLeftRadius: 20,
+    },
+        title: {
+            fontSize: 14,
+            color: '#1F265B'
+        },
+        content: {
+            fontSize: 12,
+            color: '#565656'
+        }
 });

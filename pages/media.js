@@ -6,18 +6,18 @@ import Header from '../src/modules/header';
 import {StatusBar} from 'react-native';
 
 const DATA = [
-    { id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b1', title: 'Primeiro Item', },
-    { id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63', title: 'Segundo Item', },
-    { id: '58694a0f-3da1-471f-bd96-145571e29d72', title: 'Terceiro Item', },
-    { id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b4', title: 'Primeiro Item', },
-    { id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f65', title: 'Segundo Item', },
-    { id: '58694a0f-3da1-471f-bd96-145571e29d76', title: 'Terceiro Item', },
-    { id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b7', title: 'Primeiro Item', },
-    { id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f68', title: 'Segundo Item', },
-    { id: '58694a0f-3da1-471f-bd96-145571e29d79', title: 'Terceiro Item', },
+    { id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b1', title: 'Conhecendo a Família Riomix', },
+    { id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63', title: 'Conhecendo a Família Riomix', },
+    { id: '58694a0f-3da1-471f-bd96-145571e29d72', title: 'Conhecendo a Família Riomix', },
+    { id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b4', title: 'Conhecendo a Família Riomix', },
+    { id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f65', title: 'Conhecendo a Família Riomix', },
+    { id: '58694a0f-3da1-471f-bd96-145571e29d76', title: 'Conhecendo a Família Riomix', },
+    { id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b7', title: 'Conhecendo a Família Riomix', },
+    { id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f68', title: 'Conhecendo a Família Riomix', },
+    { id: '58694a0f-3da1-471f-bd96-145571e29d79', title: 'Conhecendo a Família Riomix', },
 ];
 
-import { renderItem } from '../src/modules/list';
+import { renderItem } from '../src/modules/multiMedia';
 
 export default class Media extends React.Component {
     
