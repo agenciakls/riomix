@@ -2,6 +2,7 @@ import * as React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 
+
 import Home from './pages/home';
 import About from './pages/about';
 import Products from './pages/listProducts';
@@ -27,3 +28,4 @@ export default function App() {
     </NavigationContainer>
   );
 }
+

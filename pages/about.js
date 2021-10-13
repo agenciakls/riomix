@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         display: "flex",
-        paddingTop: Platform.OS === 'android' ? 40 : 0
+        paddingTop: Platform.OS === 'android' ? 35 : 0
     },
     safearea: {
         width: "100%",

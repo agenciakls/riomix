@@ -1,12 +1,9 @@
 
 import React from 'react'
-import { View, StyleSheet, SafeAreaView, Platform, FlatList } from 'react-native'
+import { View, StyleSheet, SafeAreaView, Platform, Text } from 'react-native'
 import Header from '../src/modules/header';
 
-
-
 export default class Home extends React.Component {
-    
     render() {
         return(
             <View 
@@ -16,7 +13,29 @@ export default class Home extends React.Component {
                     style={styles.safearea}
                 >
                     <Header click={this.props.navigation.openDrawer} />
+                    <View style={styles.boxContainer}>
+                        <View style={styles.boxWelcome}>
+                            <Text>Olá, Bem vindo</Text>
+                            <Text>Fábio Freitas</Text>
+                        </View>
+                        
+                        <View>
+                            <View>
+                                <Text>Recolhimento Geral</Text>
+                            </View>
+                            <View>
+                                
+                            </View>
+                        </View>
+                        
+                        <View>
+                            <Text>Olá, Bem vindo</Text>
+                            <Text>Fábio Freitas</Text>
+                        </View>
+                    </View>
                 </SafeAreaView>
+
+                
             </View>
         )
     }
@@ -26,18 +45,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         display: "flex",
-        paddingTop: Platform.OS === 'android' ? 40 : 0
+        paddingTop: Platform.OS === 'android' ? 35 : 0,
     },
-    safearea: {
-        width: "100%",
-        color: 'white'
+    boxContainer: {
+        padding: 20
     },
-    text: {
-        color: "#161924",
-        fontSize: 20,
-        fontWeight: "500"
-    },
-    BoxContent: {
-        color: 'black'
+    boxWelcome: {
+        flexDirection: 'row',
+        marginBottom: 15,
     }
 });
