@@ -1,40 +1,56 @@
 
 import React from 'react'
-import { View, StyleSheet, SafeAreaView, Platform, FlatList } from 'react-native'
+import { View, StyleSheet, Platform, Image, Text, ScrollView, SafeAreaView } from 'react-native'
 import Header from '../src/modules/header';
 
-const DATA = [
-    { id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b1', title: 'Primeiro Item', },
-    { id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63', title: 'Segundo Item', },
-    { id: '58694a0f-3da1-471f-bd96-145571e29d72', title: 'Terceiro Item', },
-    { id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b4', title: 'Primeiro Item', },
-    { id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f65', title: 'Segundo Item', },
-    { id: '58694a0f-3da1-471f-bd96-145571e29d76', title: 'Terceiro Item', },
-    { id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b7', title: 'Primeiro Item', },
-    { id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f68', title: 'Segundo Item', },
-    { id: '58694a0f-3da1-471f-bd96-145571e29d79', title: 'Terceiro Item', },
-];
+import {StatusBar} from 'react-native';
 
-import { renderItem } from '../src/modules/list';
 
 export default class Recicler extends React.Component {
     
     render() {
         return(
-            <View 
-                style={styles.container}
+            <View
+            style={styles.container}
+        >
+            <SafeAreaView
+                style={styles.safearea}
             >
-                <SafeAreaView
-                    style={styles.safearea}
-                >
-                    <Header click={this.props.navigation.openDrawer} />
-                    <FlatList
-                        data={DATA}
-                        renderItem={renderItem}
-                        keyExtractor={item => item.id}
-                    />
-                </SafeAreaView>
-            </View>
+                <Header click={this.props.navigation.openDrawer} />
+                <ScrollView>
+                    <View style={styles.boxContainer}>
+                        <Text style={styles.titlePage}>Recolhimento</Text>
+
+                        <View style={styles.containerRecolhimento}>
+                            <View style={styles.boxIcones}>
+                                <View style={styles.boxIconesRecolhimento}>
+                                    <Image style={styles.imagesIcones} source={require('../assets/icons/individual.png')} />
+                                    <Text style={styles.textIcons}>BSC Individual</Text>
+                                </View>
+                                
+                                <View style={styles.boxIconesRecolhimento}>
+                                    <Image style={styles.imagesIcones} source={require('../assets/icons/geral.png')} />
+                                    <Text style={styles.textIcons}>BSC Geral</Text>
+                                </View>
+                                
+                                <View style={styles.boxIconesRecolhimento}>
+                                    <Image style={styles.imagesIcones} source={require('../assets/icons/graficos.png')} />
+                                    <Text style={styles.textIcons}>Gráfico</Text>
+                                </View>
+                                
+                                <View style={styles.boxIconesRecolhimento}>
+                                    <Image style={styles.imagesIcones} source={require('../assets/icons/pcis.png')} />
+                                    <Text style={styles.textIcons}>PCIs</Text>
+                                </View>
+                            </View>
+                        </View>
+
+                    </View>
+                </ScrollView>
+            </SafeAreaView>
+
+
+        </View>
         )
     }
 }
@@ -43,18 +59,53 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         display: "flex",
-        paddingTop: Platform.OS === 'android' ? 35 : 0
+        paddingVertical: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     },
-    safearea: {
-        width: "100%",
-        color: 'white'
+    boxContainer: {
+        padding: 15
     },
-    text: {
-        color: "#161924",
-        fontSize: 20,
-        fontWeight: "500"
+    titlePage: {
+        fontSize: 16,
+        textTransform: 'uppercase',
+        fontWeight: '700',
+        color: '#198942'
     },
-    BoxContent: {
-        color: 'black'
-    }
+
+    containerRecolhimento: {
+        borderRadius: 10,
+        marginVertical: 5,
+        flexDirection: 'row',
+    },
+        boxIcones: {
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            height: '100%',
+            alignItems: 'center',
+            justifyContent: 'center',
+        },
+            boxIconesRecolhimento: {
+                flexBasis: '45%',
+                backgroundColor: '#1F265B',
+                margin: 5,
+                paddingVertical: 10,
+                borderRadius: 15,
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
+
+            },
+                imagesIcones: {
+                    marginVertical: 10,
+                    width: 50,
+                    height: 50,
+                },
+                textIcons: {
+                    fontSize: 16,
+                    textAlign: 'center',
+                    color: '#efefef',
+                    paddingVertical: 3,
+                },
+
 });

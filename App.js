@@ -7,7 +7,7 @@ import Home from './pages/home';
 import About from './pages/about';
 import Products from './pages/listProducts';
 import Recicler from './pages/recicler';
-import News from './pages/news';
+import News from './pages/listNews';
 import Media from './pages/media';
 import Contact from './pages/contact';
 

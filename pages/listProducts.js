@@ -1,60 +1,151 @@
 
 import React from 'react'
-import { View, StyleSheet, SafeAreaView, Platform, FlatList } from 'react-native'
+import { View, StyleSheet, SafeAreaView, Platform, Text, Pressable, Image, ScrollView } from 'react-native'
 import Header from '../src/modules/header';
 
-const DATA = [
-    { id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b1', title: 'Primeiro Item', },
-    { id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63', title: 'Segundo Item', },
-    { id: '58694a0f-3da1-471f-bd96-145571e29d72', title: 'Terceiro Item', },
-    { id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b4', title: 'Primeiro Item', },
-    { id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f65', title: 'Segundo Item', },
-    { id: '58694a0f-3da1-471f-bd96-145571e29d76', title: 'Terceiro Item', },
-    { id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b7', title: 'Primeiro Item', },
-    { id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f68', title: 'Segundo Item', },
-    { id: '58694a0f-3da1-471f-bd96-145571e29d79', title: 'Terceiro Item', },
-];
-
-import { renderItem } from '../src/modules/list';
+import {StatusBar} from 'react-native';
 
 export default class Products extends React.Component {
     
     render() {
         return(
-            <View 
-                style={styles.container}
+            <View
+            style={styles.container}
+        >
+            <SafeAreaView
+                style={styles.safearea}
             >
-                <SafeAreaView
-                    style={styles.safearea}
-                >
-                    <Header click={this.props.navigation.openDrawer} />
-                    <FlatList
-                        data={DATA}
-                        renderItem={renderItem}
-                        keyExtractor={item => item.id}
-                    />
-                </SafeAreaView>
-            </View>
+                <Header click={this.props.navigation.openDrawer} />
+                <ScrollView>
+                    <View style={styles.boxContainer}>
+                        <Text style={styles.titlePage}>Nossas linhas</Text>
+
+                        <View style={styles.containerLinhas}>
+                            <View style={styles.linhasBoxImage}>
+                                <Image style={styles.linhasImage} source={require('../assets/img/linha-tradicional.png')} />
+                            </View>
+                            <View style={styles.linhasBox}>
+                                <Text style={styles.linhasTitle}>Nossas Linhas</Text>
+                                <Text style={styles.linhasText}>A Riomix tem a argamassa perfeita para a necessidade de cada fase da sua obra. </Text>
+                                <Pressable style={styles.buttonLinhas}>
+                                    <Text style={styles.buttonLinhasTitle}>VER MAIS</Text>
+                                </Pressable>
+                            
+                            </View>
+                        </View>
+                        
+                        <View style={styles.containerLinhas}>
+                            <View style={styles.linhasBoxImage}>
+                                <Image style={styles.linhasImage} source={require('../assets/img/linha-tradicional.png')} />
+                            </View>
+                            <View style={styles.linhasBox}>
+                                <Text style={styles.linhasTitle}>Nossas Linhas</Text>
+                                <Text style={styles.linhasText}>A Riomix tem a argamassa perfeita para a necessidade de cada fase da sua obra. </Text>
+                                <Pressable style={styles.buttonLinhas}>
+                                    <Text style={styles.buttonLinhasTitle}>VER MAIS</Text>
+                                </Pressable>
+                            
+                            </View>
+                        </View>
+                        
+                        <View style={styles.containerLinhas}>
+                            <View style={styles.linhasBoxImage}>
+                                <Image style={styles.linhasImage} source={require('../assets/img/linha-tradicional.png')} />
+                            </View>
+                            <View style={styles.linhasBox}>
+                                <Text style={styles.linhasTitle}>Nossas Linhas</Text>
+                                <Text style={styles.linhasText}>A Riomix tem a argamassa perfeita para a necessidade de cada fase da sua obra. </Text>
+                                <Pressable style={styles.buttonLinhas}>
+                                    <Text style={styles.buttonLinhasTitle}>VER MAIS</Text>
+                                </Pressable>
+                            
+                            </View>
+                        </View>
+                        
+                        <View style={styles.containerLinhas}>
+                            <View style={styles.linhasBoxImage}>
+                                <Image style={styles.linhasImage} source={require('../assets/img/linha-tradicional.png')} />
+                            </View>
+                            <View style={styles.linhasBox}>
+                                <Text style={styles.linhasTitle}>Nossas Linhas</Text>
+                                <Text style={styles.linhasText}>A Riomix tem a argamassa perfeita para a necessidade de cada fase da sua obra. </Text>
+                                <Pressable style={styles.buttonLinhas}>
+                                    <Text style={styles.buttonLinhasTitle}>VER MAIS</Text>
+                                </Pressable>
+                            
+                            </View>
+                        </View>
+                        
+                    </View>
+                </ScrollView>
+            </SafeAreaView>
+
+
+        </View>
         )
     }
 }
+
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         display: "flex",
-        paddingTop: Platform.OS === 'android' ? 35 : 0
+        paddingVertical: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     },
-    safearea: {
-        width: "100%",
-        color: 'white'
+    boxContainer: {
+        padding: 15
     },
-    text: {
-        color: "#161924",
-        fontSize: 20,
-        fontWeight: "500"
+    titlePage: {
+        fontSize: 16,
+        textTransform: 'uppercase',
+        fontWeight: '700',
+        color: '#198942',
+        marginBottom: 10,
     },
-    BoxContent: {
-        color: 'black'
-    }
+
+    containerLinhas: {
+        backgroundColor: '#1F265B',
+        borderRadius: 10,
+        padding: 15,
+        marginVertical: 5,
+        flexDirection: 'row',
+    },
+        linhasBox: {
+            flexBasis: '50%'
+        },
+            linhasTitle: {
+                color: '#efefef',
+                fontSize: 18,
+                fontWeight: '700',
+                paddingVertical: 2,
+            },
+            linhasText: {
+                color: '#efefef',
+                fontSize: 12
+            },
+            buttonLinhas: {
+                paddingVertical: 5,
+                paddingHorizontal: 10,
+                marginVertical: 10,
+                borderRadius: 3,
+                backgroundColor: '#198942',
+                width: 100,
+                display: 'flex',
+                justifyContent: 'center',
+            },
+                buttonLinhasTitle: {
+                    textAlign: 'center',
+                    color: '#efefef',
+                    fontSize: 10,
+                },
+        linhasBoxImage: {
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+        },
+            linhasImage: {
+                height: 93,
+                width: 150,
+            },
 });

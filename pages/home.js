@@ -1,8 +1,12 @@
 
+
 import React from 'react'
 import { View, StyleSheet, SafeAreaView, Platform, Text, Image, Pressable } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
 import Header from '../src/modules/header';
+import {StatusBar} from 'react-native';
+
+import { FontAwesome } from '@expo/vector-icons';
 
 export default class Home extends React.Component {
     render() {
@@ -111,16 +115,29 @@ export default class Home extends React.Component {
                                 </View>
                             </View>
                             
-                            <View style={styles.containerNoticias}>
-                                <Text style={styles.titleNoticias}>Últimas Notícias</Text>
-                                <View>
-                                    <Text>Webinar com nosso diretor Rafael Vieira na Semana do Meio Ambiente da MP Incorporadora</Text>
+                            <View style={styles.buttonsInfo}>
+                                <View style={styles.linkAbout}>
+                                    <FontAwesome style={styles.aboutContactIcon} name="book" />
+                                    <Text style={styles.aboutContactText}>Quem Somos</Text>
+                                </View>
+                                <View style={styles.linkContact}>
+                                    <FontAwesome style={styles.aboutContactIcon} name="phone" />
+                                    <Text style={styles.aboutContactText}>Contato</Text>
                                 </View>
                             </View>
-                            <View style={styles.containerNoticias}>
-                                <Text style={styles.titleNoticias}>Últimas Notícias</Text>
-                                <View>
-                                    <Text>Webinar com nosso diretor Rafael Vieira na Semana do Meio Ambiente da MP Incorporadora</Text>
+
+                            <View style={styles.socialsLinks}>
+                                <View style={styles.singleSocial}>
+                                    <FontAwesome style={styles.iconSocial} name="facebook" />
+                                </View>
+                                <View style={styles.singleSocial}>
+                                    <FontAwesome style={styles.iconSocial} name="instagram" />
+                                </View>
+                                <View style={styles.singleSocial}>
+                                    <FontAwesome style={styles.iconSocial} name="youtube" />
+                                </View>
+                                <View style={styles.singleSocial}>
+                                    <FontAwesome style={styles.iconSocial} name="globe" />
                                 </View>
                             </View>
                             
@@ -138,7 +155,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         display: "flex",
-        paddingTop: Platform.OS === 'android' ? 35 : 0,
+        paddingVertical: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     },
     boxContainer: {
         padding: 15
@@ -323,4 +340,54 @@ const styles = StyleSheet.create({
                     color: '#efefef',
                     fontSize: 12,
                 },
+
+    buttonsInfo: {
+        flexDirection: 'row',
+    },
+    linkAbout: {
+        flex: 1,
+        backgroundColor: '#1F265B',
+        padding: 15,
+        marginRight: 15,
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    linkContact: {
+        flex: 1,
+        backgroundColor: '#198942',
+        padding: 15,
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+
+    },
+        aboutContactIcon: {
+            fontSize: 40,
+            color: '#efefef',
+            paddingVertical: 5,
+        },
+        aboutContactText: {
+            color: '#efefef',
+            textAlign: 'center',
+            textTransform: 'uppercase',
+            fontWeight: '700',
+            fontSize: 15,
+            paddingVertical: 5,
+        },
+    
+
+    socialsLinks: {
+        marginVertical: 10,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    singleSocial: {
+        padding: 15,
+    },
+    iconSocial: {
+        color: '#1F265B',
+        fontSize: 30,
+    },
 });

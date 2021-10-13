@@ -3,6 +3,8 @@ import React from 'react'
 import { View, StyleSheet, SafeAreaView, Platform, FlatList } from 'react-native'
 import Header from '../src/modules/header';
 
+import {StatusBar} from 'react-native';
+
 const DATA = [
     { id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b1', title: 'Primeiro Item', },
     { id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63', title: 'Segundo Item', },
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         display: "flex",
-        paddingTop: Platform.OS === 'android' ? 35 : 0
+        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight  : 0
     },
     safearea: {
         width: "100%",
