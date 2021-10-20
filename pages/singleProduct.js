@@ -7,7 +7,7 @@ import Header from '../src/modules/header';
 import {StatusBar} from 'react-native';
 import { faBezierCurve } from '@fortawesome/free-solid-svg-icons';
 
-export default class SingleProduct extends React.Component {
+export default class SingleProduct2 extends React.Component {
     render() {
         return(
         <View

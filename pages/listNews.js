@@ -19,6 +19,7 @@ const DATA = [
 
 import { renderItem } from '../src/modules/list';
 
+
 export default class News extends React.Component {
     
     render() {
