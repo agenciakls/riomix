@@ -19,7 +19,7 @@ export default class Home extends React.Component {
                 >
                     <Header click={this.props.navigation.openDrawer} />
                     <ScrollView>
-                            <View style={styles.boxContainer}>
+                        <View style={styles.boxContainer}>
                             <View style={styles.boxWelcome}>
                                 <Text style={styles.messageWelcome}>Olá, Bem vindo</Text>
                                 <Text style={styles.messageName}>Fábio Freitas</Text>
@@ -29,7 +29,7 @@ export default class Home extends React.Component {
                                 <View>
                                     <Text style={styles.titleRecolhimento}>Recolhimento Geral</Text>
 
-                                    <View style={styles.detailRecolhimento}>
+                                      <View style={styles.detailRecolhimento}>
                                         <View style={styles.valueRecolhimento} >
                                             <Text style={styles.valueTextRecolhimento}>300</Text>
                                         </View>
