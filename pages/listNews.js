@@ -1,11 +1,12 @@
 
 import React from 'react'
-import { View, StyleSheet, SafeAreaView, Platform, FlatList, ScrollView, Text } from 'react-native'
+import { View, StyleSheet, SafeAreaView, Platform, FlatList, ScrollView, Text, Image, TouchableHighlight } from 'react-native'
 import Header from '../src/modules/header';
 
 import {StatusBar} from 'react-native';
 
 import { createStackNavigator } from '@react-navigation/stack';
+
 const Stack = createStackNavigator();
 
 const DATA = [
@@ -20,7 +21,6 @@ const DATA = [
     { id: '58694a0f-3da1-471f-bd96-145571e29d79', title: 'Parceria entre o Programa Emboço Social e o Conleste', content: 'O ano de 2021 começou proporcionando grandes avanços para o Programa Emboço Social – PES...',},
 ];
 
-import { renderItem } from '../src/modules/list';
 function singleNoticias() {
     return(
         <View
@@ -31,29 +31,23 @@ function singleNoticias() {
             >
                 <ScrollView>
                     <View style={styleSingle.boxContainer}>
-                        <Text style={styleSingle.titlePage}>QUEM SOMOS</Text>
-                        <View style={styleSingle.imgAbout}><Image source={require('../assets/logo-sobre.png')} /></View>
+                        <Text style={styleSingle.titlePage}>Notícias</Text>
+                        <Text style={styleSingle.titleNew}>Parceria entre o Programa Emboço Social e o Conleste</Text>
                         <View>
                             <Text style={styleSingle.aboutParagraph}>Ao longo de sua história, a marca solidificou a posição no mercado de fabricação de argamassas industrializadas, atendendo a grandes construtoras e lojas de materiais de construção no Rio de Janeiro e Grande Rio, tendo sempre o compromisso de preservar o meio-ambiente.</Text>
-
                             <Text style={styleSingle.aboutParagraph}>Oferecemos uma vasta linha de argamassas, formuladas para atender as necessidades de cada fase da obra: assentamento, emboço, revestimento, contrapiso, chapisco e argamassas colantes.</Text>
-
                             <Text style={styleSingle.aboutParagraph}>Nossa produção conta com matérias-primas de alta qualidade e um eficiente processo de fabricação automatizado, além de acompanhamento laboriatorial contínuo. Tudo para garantir a excelência que você precisa.</Text>
-
                             <Text style={styleSingle.aboutParagraph}>As principais vantagens de nossos produtos são a economia, a qualidade e a praticidade: eles vêm prontos para uso, basta adicionar água.</Text>
                         </View>
-                        <Image source={require('../assets/quem-somos.jpg')} />
+                        <Image source={require('../assets/example/example-multimedia.png')} style={styleSingle.imageText} />
                     </View>
                 </ScrollView>
-                
             </SafeAreaView>
-
-
         </View>
     )
 }
 
-function listaNoticias() {
+function listaNoticias({navigation}) {
     return(
         <View
             style={styles.container}
@@ -65,8 +59,20 @@ function listaNoticias() {
                     <Text style={styles.titlePage}>Notícias</Text>
                     <FlatList
                         data={DATA}
-                        renderItem={renderItem}
                         keyExtractor={item => item.id}
+                        renderItem={({ item }) => (
+                            <TouchableHighlight onPress={() => navigation.navigate('Notícia')}>
+                                <View style={styleNoticiaSingle.item}>
+                                    <View>
+                                        <Image style={styleNoticiaSingle.imgNoticias} source={require('../assets/example/example-new-list.png')} />
+                                    </View>
+                                    <View style={styleNoticiaSingle.boxText}>
+                                        <Text style={styleNoticiaSingle.title}>{item.title}</Text>
+                                        <Text style={styleNoticiaSingle.content}>{item.content}</Text>
+                                    </View>
+                                </View>
+                            </TouchableHighlight>
+                        )}
                     />
                 </View>
                     
@@ -78,8 +84,8 @@ function listaNoticias() {
 export default class listProducts extends React.Component {
     render() {
         return (
-            <Stack.Navigator initialRouteName="Notícias">
-                <Stack.Screen name="Notícias" component={listaNoticias} />
+            <Stack.Navigator initialRouteName="Todas as Notícias">
+                <Stack.Screen name="Todas as Notícias" component={listaNoticias} />
                 <Stack.Screen name="Notícia" component={singleNoticias} />
             </Stack.Navigator>
         )
@@ -120,7 +126,6 @@ const styleSingle = StyleSheet.create({
         backgroundColor: '#ffffff',
         flex: 1,
         display: "flex",
-        paddingVertical: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     },
     boxContainer: {
         padding: 15
@@ -134,10 +139,15 @@ const styleSingle = StyleSheet.create({
         textTransform: 'uppercase',
         fontWeight: '700',
         color: '#198942',
-        marginBottom: 10,
-        textAlign: 'center'
+        marginVertical: 15,
     },
-    imgAbout: {
+    titleNew: {
+        fontSize: 16,
+        fontWeight: '700',
+        color: '#1F265B',
+    },
+    imageText: {
+        width: '100%',
         flexDirection: 'row',
         justifyContent: 'center',
         marginVertical: 15,
@@ -157,4 +167,30 @@ const styleSingle = StyleSheet.create({
     }
     
 
+});
+
+const styleNoticiaSingle = StyleSheet.create({
+    item: {
+        backgroundColor: '#dedede',        
+        borderRadius: 10,
+        flexDirection: 'row',
+        marginVertical: 5,
+        
+    },
+    boxText: {
+        flex: 1,
+        padding: 10,
+    },
+    imgNoticias: {
+        borderTopLeftRadius: 20,
+        borderBottomLeftRadius: 20,
+    },
+        title: {
+            fontSize: 14,
+            color: '#1F265B'
+        },
+        content: {
+            fontSize: 12,
+            color: '#565656'
+        }
 });

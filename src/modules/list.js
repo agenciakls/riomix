@@ -3,15 +3,15 @@ import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native';
 
 export const Item = ({ item }) => (
-<View style={styles.item} onPress={() => navigation.navigate('Notícia')}>
-    <View>
-        <Image style={StyleSheet.imgNoticias} source={require('../../assets/example/example-new-list.png')} />
+    <View style={styles.item} onPress={() => navigation.navigate('Notícia')}>
+        <View>
+            <Image style={StyleSheet.imgNoticias} source={require('../../assets/example/example-new-list.png')} />
+        </View>
+        <View style={styles.boxText}>
+            <Text style={styles.title}>{item.title}</Text>
+            <Text style={styles.content}>{item.content}</Text>
+        </View>
     </View>
-    <View style={styles.boxText}>
-        <Text style={styles.title}>{item.title}</Text>
-        <Text style={styles.content}>{item.content}</Text>
-    </View>
-</View>
 );
 export const renderItem = ({ item }) => (
     <Item item={item} />
