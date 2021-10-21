@@ -10,7 +10,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-function SingleProduct() {
+function SingleLinha() {
     return (
         <View
             style={styles.container}
@@ -21,8 +21,10 @@ function SingleProduct() {
                 <ScrollView>
                     <View style={styles.boxContainer}>
                         <Text style={styles.titlePage}>LINHA TRADICIONAL</Text>
-                        <View style={styles.imgProduct}><Image source={require('../assets/files/contrapiso.png')} /></View>
-                        <View>
+
+                        <View style={styles.singleBoxLinha}>
+                            <View style={styles.imgProduct}><Image source={require('../assets/files/contrapiso.png')} /></View>
+                            <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
                             <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
                             <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
                             <Text style={styles.productParagraph}>Embalagem: 50 kg.</Text>
@@ -30,19 +32,81 @@ function SingleProduct() {
                             <View style={styles.areaButtons}>
                                 <Pressable style={styles.buttonSingle}>
                                     <Text style={styles.buttonSingleTitle}>Quero saber mais</Text>
-                                </Pressable>
+                                </Pressable>    
                                 
-                                <Pressable style={styles.buttonSingle}>
-                                    <Text style={styles.buttonSingleTitle}>Assistir vídeo</Text>
+                                <Pressable style={styles.buttonSingleSecondary}>
+                                    <Text style={styles.buttonSingleSecondaryTitle}>Assistir vídeo</Text>
                                 </Pressable>
                             </View>
+                            <View style={styles.hrLinha} />
                         </View>
+
+                        
+
+                        <View style={styles.singleBoxLinha}>
+                            <View style={styles.imgProduct}><Image source={require('../assets/files/contrapiso.png')} /></View>
+                            <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
+                            <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
+                            <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
+                            <Text style={styles.productParagraph}>Embalagem: 50 kg.</Text>
+                            
+                            <View style={styles.areaButtons}>
+                                <Pressable style={styles.buttonSingle}>
+                                    <Text style={styles.buttonSingleTitle}>Quero saber mais</Text>
+                                </Pressable>    
+                                
+                                <Pressable style={styles.buttonSingleSecondary}>
+                                    <Text style={styles.buttonSingleSecondaryTitle}>Assistir vídeo</Text>
+                                </Pressable>
+                            </View>
+                            <View style={styles.hrLinha} />
+                        </View>
+
+                        
+
+                        <View style={styles.singleBoxLinha}>
+                            <View style={styles.imgProduct}><Image source={require('../assets/files/contrapiso.png')} /></View>
+                            <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
+                            <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
+                            <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
+                            <Text style={styles.productParagraph}>Embalagem: 50 kg.</Text>
+                            
+                            <View style={styles.areaButtons}>
+                                <Pressable style={styles.buttonSingle}>
+                                    <Text style={styles.buttonSingleTitle}>Quero saber mais</Text>
+                                </Pressable>    
+                                
+                                <Pressable style={styles.buttonSingleSecondary}>
+                                    <Text style={styles.buttonSingleSecondaryTitle}>Assistir vídeo</Text>
+                                </Pressable>
+                            </View>
+                            <View style={styles.hrLinha} />
+                        </View>
+
+                        
+
+                        <View style={styles.singleBoxLinha}>
+                            <View style={styles.imgProduct}><Image source={require('../assets/files/contrapiso.png')} /></View>
+                            <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
+                            <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
+                            <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
+                            <Text style={styles.productParagraph}>Embalagem: 50 kg.</Text>
+                            
+                            <View style={styles.areaButtons}>
+                                <Pressable style={styles.buttonSingle}>
+                                    <Text style={styles.buttonSingleTitle}>Quero saber mais</Text>
+                                </Pressable>    
+                                
+                                <Pressable style={styles.buttonSingleSecondary}>
+                                    <Text style={styles.buttonSingleSecondaryTitle}>Assistir vídeo</Text>
+                                </Pressable>
+                            </View>
+                            <View style={styles.hrLinha} />
+                        </View>
+
                     </View>
                 </ScrollView>
-                
             </SafeAreaView>
-
-
         </View>
     );
 }
@@ -50,7 +114,6 @@ function SingleProduct() {
 
 function HomeProducts({navigation}) {
     return (
-
         <View
             style={styles.container}
         >
@@ -68,7 +131,7 @@ function HomeProducts({navigation}) {
                             <View style={styles.linhasBox}>
                                 <Text style={styles.linhasTitle}>Nossas Linhas</Text>
                                 <Text style={styles.linhasText}>A Riomix tem a argamassa perfeita para a necessidade de cada fase da sua obra. </Text>
-                                <Pressable style={styles.buttonProductTitle} onPress={() => navigation.navigate('Produto')}>
+                                <Pressable style={styles.buttonProduct} onPress={() => navigation.navigate('Linha')}>
                                     <Text style={styles.buttonProductTitle}>VER MAIS</Text>
                                 </Pressable>
 
@@ -82,7 +145,7 @@ function HomeProducts({navigation}) {
                             <View style={styles.linhasBox}>
                                 <Text style={styles.linhasTitle}>Nossas Linhas</Text>
                                 <Text style={styles.linhasText}>A Riomix tem a argamassa perfeita para a necessidade de cada fase da sua obra. </Text>
-                                <Pressable style={styles.buttonProductTitle}>
+                                <Pressable style={styles.buttonProduct}>
                                     <Text style={styles.buttonProductTitle}>VER MAIS</Text>
                                 </Pressable>
 
@@ -96,7 +159,7 @@ function HomeProducts({navigation}) {
                             <View style={styles.linhasBox}>
                                 <Text style={styles.linhasTitle}>Nossas Linhas</Text>
                                 <Text style={styles.linhasText}>A Riomix tem a argamassa perfeita para a necessidade de cada fase da sua obra. </Text>
-                                <Pressable style={styles.buttonProductTitle}>
+                                <Pressable style={styles.buttonProduct}>
                                     <Text style={styles.buttonProductTitle}>VER MAIS</Text>
                                 </Pressable>
 
@@ -110,7 +173,7 @@ function HomeProducts({navigation}) {
                             <View style={styles.linhasBox}>
                                 <Text style={styles.linhasTitle}>Nossas Linhas</Text>
                                 <Text style={styles.linhasText}>A Riomix tem a argamassa perfeita para a necessidade de cada fase da sua obra. </Text>
-                                <Pressable style={styles.buttonProductTitle}>
+                                <Pressable style={styles.buttonProduct}>
                                     <Text style={styles.buttonProductTitle}>VER MAIS</Text>
                                 </Pressable>
 
@@ -129,9 +192,9 @@ function HomeProducts({navigation}) {
 export default class listProducts extends React.Component {
     render() {
         return (
-            <Stack.Navigator initialRouteName="Produtos">
-                <Stack.Screen name="Produtos" component={HomeProducts} />
-                <Stack.Screen name="Produto" component={SingleProduct} />
+            <Stack.Navigator initialRouteName="Nossas Linhas">
+                <Stack.Screen name="Nossas Linhas" component={HomeProducts} />
+                <Stack.Screen name="Linha" component={SingleLinha} />
             </Stack.Navigator>
         )
     }
@@ -142,19 +205,40 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         display: "flex",
-        paddingVertical: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     },
     boxContainer: {
-        padding: 15
+        paddingHorizontal: 15,
+        paddingVertical: 30,
     },
-    titlePage: {
-        fontSize: 16,
-        textTransform: 'uppercase',
-        fontWeight: '700',
-        color: '#198942',
-        marginBottom: 10,
+        singleBoxLinha: {
+            paddingVertical: 30,
+        },
+        titlePage: {
+            fontSize: 16,
+            textTransform: 'uppercase',
+            fontWeight: '700',
+            color: '#198942',
+            marginBottom: 10,
+        },
+        titleBox: {
+            fontSize: 16,
+            textTransform: 'uppercase',
+            textAlign: 'center',
+            fontWeight: '700',
+            color: '#1F265B',
+            marginBottom: 10,
+            paddingVertical: 15,
+        },
+        productParagraph: {
+            fontSize: 15,
+            marginBottom: 15,
+            color: '#808080', 
+        },
+    imgProduct: {
+        flex: 1, 
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-
     containerLinhas: {
         backgroundColor: '#1F265B',
         borderRadius: 10,
@@ -169,24 +253,49 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         alignContent: 'center', 
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginVertical: 10,
     },
     
-    buttonProductTitle: {
-        paddingVertical: 5,
+    buttonSingle: {
+        flex: 1, 
+        paddingVertical: 7,
         paddingHorizontal: 10,
         marginVertical: 10,
+        marginHorizontal: 3,
         borderRadius: 3,
         backgroundColor: '#198942',
         width: 100,
         display: 'flex',
         justifyContent: 'center',
     },
-    buttonProductTitle: {
-        textAlign: 'center',
-        color: '#efefef',
-        fontSize: 10,
+        buttonSingleTitle: {
+            textAlign: 'center',
+            color: '#efefef',
+            fontSize: 13,
+            textTransform: 'uppercase',
+        },
+
+    buttonSingleSecondary: {
+        flex: 1, 
+        paddingVertical: 7,
+        paddingHorizontal: 10,
+        marginVertical: 10,
+        marginHorizontal: 3,
+        borderRadius: 3,
+        borderStyle: 'solid',
+        borderWidth: 2,
+        borderColor: '#1F265B',
+        width: 100,
+        display: 'flex',
+        justifyContent: 'center',
     },
+        buttonSingleSecondaryTitle: {
+            textAlign: 'center',
+            color: '#1F265B',
+            textTransform: 'uppercase',
+            fontSize: 13,
+        },
 
     linhasTitle: {
         color: '#efefef',
@@ -198,7 +307,14 @@ const styles = StyleSheet.create({
         color: '#efefef',
         fontSize: 12
     },
-    buttonLinhasTitle: {
+
+    hrLinha: {
+        borderBottomColor: '#E1E1E1',
+        borderBottomWidth: 2,
+        marginVertical: 10,
+    },
+
+    buttonProduct: {
         paddingVertical: 5,
         paddingHorizontal: 10,
         marginVertical: 10,
@@ -208,18 +324,19 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
     },
-    buttonLinhasTitle: {
-        textAlign: 'center',
-        color: '#efefef',
-        fontSize: 10,
-    },
+        buttonProductTitle: {
+            textAlign: 'center',
+            color: '#efefef',
+            fontSize: 10,
+        },
     linhasBoxImage: {
+        display: 'flex',
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
     },
-    linhasImage: {
-        height: 93,
-        width: 150,
-    },
+        linhasImage: {
+            height: 93,
+            width: 150,
+        },
 });
