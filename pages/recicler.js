@@ -1,56 +1,152 @@
 
 import React from 'react'
-import { View, StyleSheet, Platform, Image, Text, ScrollView, SafeAreaView } from 'react-native'
+import { View, StyleSheet, Platform, Image, Text, ScrollView, SafeAreaView, Pressable } from 'react-native'
 import Header from '../src/modules/header';
 
-import {StatusBar} from 'react-native';
+import { StatusBar } from 'react-native';
 
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default class Recicler extends React.Component {
-    
-    render() {
-        return(
-            <View
+const Stack = createStackNavigator();
+
+function reciclerIndividual() {
+
+    return (
+        <View
             style={styles.container}
         >
             <SafeAreaView
                 style={styles.safearea}
             >
-                <Header click={this.props.navigation.openDrawer} />
+                
+                <ScrollView>
+                    <View style={styles.boxContainer}>
+                        <Text style={styles.titlePage}>Recolhimento</Text>
+                        
+                    </View>
+                </ScrollView>
+            </SafeAreaView>
+        </View>
+    )
+
+}
+function reciclerGeral() {
+
+    return (
+        <View
+            style={styles.container}
+        >
+            <SafeAreaView
+                style={styles.safearea}
+            >
+                
+                <ScrollView>
+                    <View style={styles.boxContainer}>
+                        <Text style={styles.titlePage}>Recolhimento</Text>
+                        
+                    </View>
+                </ScrollView>
+            </SafeAreaView>
+        </View>
+    )
+
+}
+function reciclerGrafico() {
+
+    return (
+        <View
+            style={styles.container}
+        >
+            <SafeAreaView
+                style={styles.safearea}
+            >
+                
+                <ScrollView>
+                    <View style={styles.boxContainer}>
+                        <Text style={styles.titlePage}>Recolhimento</Text>
+                        
+                    </View>
+                </ScrollView>
+            </SafeAreaView>
+        </View>
+    )
+
+}
+function reciclerPCI() {
+
+    return (
+        <View
+            style={styles.container}
+        >
+            <SafeAreaView
+                style={styles.safearea}
+            >
+                
+                <ScrollView>
+                    <View style={styles.boxContainer}>
+                        <Text style={styles.titlePage}>Recolhimento</Text>
+                        
+                    </View>
+                </ScrollView>
+            </SafeAreaView>
+        </View>
+    )
+}
+function reciclerMain({ navigation }) {
+    return (
+        <View
+            style={styles.container}
+        >
+            <SafeAreaView
+                style={styles.safearea}
+            >
+                
                 <ScrollView>
                     <View style={styles.boxContainer}>
                         <Text style={styles.titlePage}>Recolhimento</Text>
 
                         <View style={styles.containerRecolhimento}>
                             <View style={styles.boxIcones}>
-                                <View style={styles.boxIconesRecolhimento}>
+                                <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('Recolhimento Individual')}>
                                     <Image style={styles.imagesIcones} source={require('../assets/icons/individual.png')} />
                                     <Text style={styles.textIcons}>BSC Individual</Text>
-                                </View>
-                                
-                                <View style={styles.boxIconesRecolhimento}>
+                                </Pressable>
+
+                                <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('BSC Geral')}>
                                     <Image style={styles.imagesIcones} source={require('../assets/icons/geral.png')} />
                                     <Text style={styles.textIcons}>BSC Geral</Text>
-                                </View>
-                                
-                                <View style={styles.boxIconesRecolhimento}>
+                                </Pressable>
+
+                                <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('Gráfico')}>
                                     <Image style={styles.imagesIcones} source={require('../assets/icons/graficos.png')} />
                                     <Text style={styles.textIcons}>Gráfico</Text>
-                                </View>
-                                
-                                <View style={styles.boxIconesRecolhimento}>
+                                </Pressable>
+
+                                <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('PCI')}>
                                     <Image style={styles.imagesIcones} source={require('../assets/icons/pcis.png')} />
                                     <Text style={styles.textIcons}>PCIs</Text>
-                                </View>
+                                </Pressable>
                             </View>
                         </View>
 
                     </View>
                 </ScrollView>
             </SafeAreaView>
-
-
         </View>
+    )
+}
+
+export default class Recicler extends React.Component {
+
+    render() {
+        return (
+            <Stack.Navigator initialRouteName="Recolhimento">
+                <Stack.Screen name="Recolhimento" component={reciclerMain}  />
+                <Stack.Screen name="Recolhimento Individual" component={reciclerIndividual}  />
+                <Stack.Screen name="BSC Geral" component={reciclerGeral}  />
+                <Stack.Screen name="Gráfico" component={reciclerGrafico}  />
+                <Stack.Screen name="PCI" component={reciclerPCI}  />
+            </Stack.Navigator>
         )
     }
 }
@@ -59,7 +155,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         display: "flex",
-        paddingVertical: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     },
     boxContainer: {
         padding: 15
@@ -76,36 +171,36 @@ const styles = StyleSheet.create({
         marginVertical: 5,
         flexDirection: 'row',
     },
-        boxIcones: {
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            height: '100%',
-            alignItems: 'center',
-            justifyContent: 'center',
-        },
-            boxIconesRecolhimento: {
-                flexBasis: '45%',
-                backgroundColor: '#1F265B',
-                margin: 5,
-                paddingVertical: 10,
-                borderRadius: 15,
-                flex: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
+    boxIcones: {
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        height: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    boxIconesRecolhimento: {
+        flexBasis: '45%',
+        backgroundColor: '#1F265B',
+        margin: 5,
+        paddingVertical: 10,
+        borderRadius: 15,
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
 
-            },
-                imagesIcones: {
-                    marginVertical: 10,
-                    width: 50,
-                    height: 50,
-                },
-                textIcons: {
-                    fontSize: 16,
-                    textAlign: 'center',
-                    color: '#efefef',
-                    paddingVertical: 3,
-                },
+    },
+    imagesIcones: {
+        marginVertical: 10,
+        width: 50,
+        height: 50,
+    },
+    textIcons: {
+        fontSize: 16,
+        textAlign: 'center',
+        color: '#efefef',
+        paddingVertical: 3,
+    },
 
 });
