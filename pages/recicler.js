@@ -13,15 +13,129 @@ function reciclerIndividual() {
 
     return (
         <View
-            style={styles.container}
+            style={individual.container}
         >
             <SafeAreaView
-                style={styles.safearea}
+                style={individual.safearea}
             >
                 
                 <ScrollView>
-                    <View style={styles.boxContainer}>
-                        <Text style={styles.titlePage}>Recolhimento</Text>
+                    <View style={individual.boxContainer}>
+                        <Text style={individual.titlePage}>Recolhimento</Text>
+                        
+
+
+                        
+                        <View style={individual.boxSingle}>
+                            <Text style={individual.titleSingle}>MP CONSTRUTORA - Jardim Bougainville</Text> 
+                            <View style={individual.areaData}>
+                                <Text style={individual.singleData}>Data da Compra: 15/05/21</Text> 
+                                <Text style={individual.singleData}>Data da Devolução: 22/05/21</Text> 
+                            </View>
+
+                            
+                            <View style={individual.listDados}>
+                                <View style={individual.singleDados}>
+                                    <Text style={individual.infoDados}>20.705</Text> 
+                                    <Text style={individual.infoDados}>Acumulado de Vendas</Text> 
+                                </View> 
+                                <View style={individual.singleDados}>
+                                    <Text style={individual.infoDados}>15.185</Text> 
+                                    <Text style={individual.infoDados}>Acumulado Retorno</Text> 
+                                </View> 
+                                <View style={individual.singleDados}>
+                                    <Text style={individual.infoDados}>0,733</Text> 
+                                    <Text style={individual.infoDados}>Coeficiente de Devolução</Text> 
+                                </View> 
+                                <View style={individual.singleDados}>
+                                    <Text style={individual.infoDados}>3,04</Text> 
+                                    <Text style={individual.infoDados}>Protetômetro</Text> 
+                                </View> 
+                                <View style={individual.singleDados}>
+                                    <Text style={individual.infoDadosVerde}> R$ 754,60 </Text> 
+                                    <Text style={individual.infoDadosVerde}>Economia no Mês</Text> 
+                                </View> 
+                                <View style={individual.singleDados}>
+                                    <Text style={individual.infoDadosVerde}> R$ 10.629,50</Text> 
+                                    <Text style={individual.infoDadosVerde}>Acumulado de Vendas</Text> 
+                                </View> 
+                            </View>
+                        </View>
+
+                        <View style={individual.boxSingle}>
+                            <Text style={individual.titleSingle}>MP CONSTRUTORA - Jardim Bougainville</Text> 
+                            <View style={individual.areaData}>
+                                <Text style={individual.singleData}>Data da Compra: 15/05/21</Text> 
+                                <Text style={individual.singleData}>Data da Devolução: 22/05/21</Text> 
+                            </View>
+
+                            
+                            <View style={individual.listDados}>
+                                <View style={individual.singleDados}>
+                                    <Text style={individual.infoDados}>20.705</Text> 
+                                    <Text style={individual.infoDados}>Acumulado de Vendas</Text> 
+                                </View> 
+                                <View style={individual.singleDados}>
+                                    <Text style={individual.infoDados}>15.185</Text> 
+                                    <Text style={individual.infoDados}>Acumulado Retorno</Text> 
+                                </View> 
+                                <View style={individual.singleDados}>
+                                    <Text style={individual.infoDados}>0,733</Text> 
+                                    <Text style={individual.infoDados}>Coeficiente de Devolução</Text> 
+                                </View> 
+                                <View style={individual.singleDados}>
+                                    <Text style={individual.infoDados}>3,04</Text> 
+                                    <Text style={individual.infoDados}>Protetômetro</Text> 
+                                </View> 
+                                <View style={individual.singleDados}>
+                                    <Text style={individual.infoDadosVerde}> R$ 754,60 </Text> 
+                                    <Text style={individual.infoDadosVerde}>Economia no Mês</Text> 
+                                </View> 
+                                <View style={individual.singleDados}>
+                                    <Text style={individual.infoDadosVerde}> R$ 10.629,50</Text> 
+                                    <Text style={individual.infoDadosVerde}>Acumulado de Vendas</Text> 
+                                </View> 
+                            </View>
+                        </View>
+
+                        <View style={individual.boxSingle}>
+                            <Text style={individual.titleSingle}>MP CONSTRUTORA - Jardim Bougainville</Text> 
+                            <View style={individual.areaData}>
+                                <Text style={individual.singleData}>Data da Compra: 15/05/21</Text> 
+                                <Text style={individual.singleData}>Data da Devolução: 22/05/21</Text> 
+                            </View>
+
+                            
+                            <View style={individual.listDados}>
+                                <View style={individual.singleDados}>
+                                    <Text style={individual.infoDados}>20.705</Text> 
+                                    <Text style={individual.infoDados}>Acumulado de Vendas</Text> 
+                                </View> 
+                                <View style={individual.singleDados}>
+                                    <Text style={individual.infoDados}>15.185</Text> 
+                                    <Text style={individual.infoDados}>Acumulado Retorno</Text> 
+                                </View> 
+                                <View style={individual.singleDados}>
+                                    <Text style={individual.infoDados}>0,733</Text> 
+                                    <Text style={individual.infoDados}>Coeficiente de Devolução</Text> 
+                                </View> 
+                                <View style={individual.singleDados}>
+                                    <Text style={individual.infoDados}>3,04</Text> 
+                                    <Text style={individual.infoDados}>Protetômetro</Text> 
+                                </View> 
+                                <View style={individual.singleDados}>
+                                    <Text style={individual.infoDadosVerde}> R$ 754,60 </Text> 
+                                    <Text style={individual.infoDadosVerde}>Economia no Mês</Text> 
+                                </View> 
+                                <View style={individual.singleDados}>
+                                    <Text style={individual.infoDadosVerde}> R$ 10.629,50</Text> 
+                                    <Text style={individual.infoDadosVerde}>Acumulado de Vendas</Text> 
+                                </View> 
+                            </View>
+                        </View>
+
+
+
                         
                     </View>
                 </ScrollView>
@@ -44,6 +158,22 @@ function reciclerGeral() {
                     <View style={styles.boxContainer}>
                         <Text style={styles.titlePage}>Recolhimento</Text>
                         
+
+                        <View style={geral.boxSingle}>
+                            <Text style={geral.titleSingle}>Julho de 2021</Text> 
+                            <View style={geral.areaData}>
+                                <Text style={geral.singleData}>300</Text> 
+                                <Text style={geral.singleData}>Devoluções</Text> 
+                            </View>
+
+                            
+                            <View style={geral.listDados}>
+                                <View style={geral.singleDados}>
+                                    <Text style={geral.infoDados}>156115</Text> 
+                                    <Text style={geral.infoDados}>desde Abril de 2017</Text> 
+                                </View> 
+                            </View>
+                        </View>
                     </View>
                 </ScrollView>
             </SafeAreaView>
@@ -202,5 +332,123 @@ const styles = StyleSheet.create({
         color: '#efefef',
         paddingVertical: 3,
     },
+
+});
+
+
+const individual = StyleSheet.create({
+    container: {
+        flex: 1,
+        display: "flex",
+    },
+    boxContainer: {
+        padding: 15
+    },
+    titlePage: {
+        fontSize: 16,
+        textTransform: 'uppercase',
+        fontWeight: '700',
+        color: '#198942'
+    },
+    boxSingle: {
+        backgroundColor: '#dedede',
+        borderRadius: 10,
+        padding: 15,
+        marginVertical: 15,
+    },
+    
+    titleSingle: {
+        fontSize: 16,
+        fontWeight: '700',
+        color: '#1F265B'
+    },
+    areaData: {
+        flexDirection: 'row',
+        marginVertical: 5,
+        justifyContent: 'flex-start',
+    },
+        singleData: {
+            fontSize: 11,
+            paddingRight: 10,
+        },
+
+    listDados: {
+        marginVertical: 15,
+        
+    },
+        singleDados: {
+            justifyContent: 'space-between',
+            flexDirection: 'row',
+            borderBottomColor: '#D2D2D2',
+            borderBottomWidth: 2,
+            paddingVertical: 5,
+        },
+            infoDados: {
+                fontWeight: 'bold',
+                color: '#808080',
+            },
+            infoDadosVerde: {
+                fontWeight: 'bold',
+                color: '#198942',
+            },
+
+});
+
+
+const geral = StyleSheet.create({
+    container: {
+        flex: 1,
+        display: "flex",
+    },
+    boxContainer: {
+        padding: 15
+    },
+    titlePage: {
+        fontSize: 16,
+        textTransform: 'uppercase',
+        fontWeight: '700',
+        color: '#198942'
+    },
+    boxSingle: {
+        backgroundColor: '#dedede',
+        borderRadius: 10,
+        padding: 15,
+        marginVertical: 15,
+    },
+    
+    titleSingle: {
+        fontSize: 16,
+        fontWeight: '700',
+        color: '#1F265B'
+    },
+    areaData: {
+        flexDirection: 'row',
+        marginVertical: 5,
+        justifyContent: 'flex-start',
+    },
+        singleData: {
+            fontSize: 11,
+            paddingRight: 10,
+        },
+
+    listDados: {
+        marginVertical: 15,
+        
+    },
+        singleDados: {
+            justifyContent: 'space-between',
+            flexDirection: 'row',
+            borderBottomColor: '#D2D2D2',
+            borderBottomWidth: 2,
+            paddingVertical: 5,
+        },
+            infoDados: {
+                fontWeight: 'bold',
+                color: '#808080',
+            },
+            infoDadosVerde: {
+                fontWeight: 'bold',
+                color: '#198942',
+            },
 
 });
