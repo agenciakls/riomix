@@ -3,7 +3,7 @@ import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native';
 
 export const Item = ({ item }) => (
-<View style={styles.item}>
+<View style={styles.item} onPress={() => navigation.navigate('Notícia')}>
     <View>
         <Image style={StyleSheet.imgNoticias} source={require('../../assets/example/example-new-list.png')} />
     </View>
