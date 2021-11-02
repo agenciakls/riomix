@@ -20,7 +20,7 @@ export default function App() {
         <Drawer.Screen name="Início" component={Home} />
         <Drawer.Screen name="Quem Somos" component={About} />
         <Drawer.Screen name="Produtos" component={Products} />
-        <Drawer.Screen name="Recolhimento" component={Recicler} />
+        <Drawer.Screen name="Recolhimentos" component={Recicler} />
         <Drawer.Screen name="Notícias" component={News} />
         <Drawer.Screen name="Multimídia" component={Media} />
         <Drawer.Screen name="Contato" component={Contact} />

@@ -99,10 +99,10 @@ const styles = StyleSheet.create({
         flex: 1,
         display: "flex",
         paddingVertical: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-    },
-    boxContainer: {
-        padding: 15
-    },
+        },
+        boxContainer: {
+            padding: 15
+        },
     aboutVideo: {
         flex: 1,
         height: 220,

@@ -1,13 +1,30 @@
 
-import React from 'react'
+import * as React from 'react'
 import { View, StyleSheet, Platform, Image, Text, ScrollView, SafeAreaView, Pressable } from 'react-native'
 import Header from '../src/modules/header';
+import {
+    LineChart,
+    BarChart,
+    PieChart,
+    ProgressChart,
+    ContributionGraph,
+    StackedBarChart
+  } from "react-native-chart-kit";
 
-import { StatusBar } from 'react-native';
+import { StatusBar, Dimensions } from 'react-native';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
+
+const dataGraphic = {
+labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
+datasets: [
+    {
+    data: [20, 45, 28, 80, 99, 43]
+    }
+]
+};
 
 function reciclerIndividual() {
 
@@ -160,18 +177,67 @@ function reciclerGeral() {
                         
 
                         <View style={geral.boxSingle}>
-                            <Text style={geral.titleSingle}>Julho de 2021</Text> 
-                            <View style={geral.areaData}>
-                                <Text style={geral.singleData}>300</Text> 
-                                <Text style={geral.singleData}>Devoluções</Text> 
-                            </View>
+                            <View style={geral.InfoBoxArea}>
+                                <Text style={geral.titleSingle}>Julho de 2021</Text> 
+                                <View style={geral.areaData}>
+                                    <Text style={geral.singleData}>300</Text> 
+                                    <Text style={geral.singleData}>Devoluções</Text> 
+                                </View>
 
-                            
-                            <View style={geral.listDados}>
-                                <View style={geral.singleDados}>
-                                    <Text style={geral.infoDados}>156115</Text> 
-                                    <Text style={geral.infoDados}>desde Abril de 2017</Text> 
-                                </View> 
+                                
+                                <View style={geral.listDados}>
+                                    <View style={geral.singleDados}>
+                                        <Text style={geral.infoDados}>156115</Text> 
+                                        <Text style={geral.infoDados}>desde Abril de 2017</Text> 
+                                    </View> 
+                                </View>
+                            </View>
+                            <View style={geral.infoBoxImg}>
+                                <Image source={require('../assets/icons/riomix-cinza.png')} />
+                            </View>
+                        </View>
+
+                        
+                        <View style={geral.boxSingle}>
+                            <View style={geral.InfoBoxArea}>
+                                <Text style={geral.titleSingle}>Julho de 2021</Text> 
+                                <View style={geral.areaData}>
+                                    <Text style={geral.singleData}>300</Text> 
+                                    <Text style={geral.singleData}>Devoluções</Text> 
+                                </View>
+
+                                
+                                <View style={geral.listDados}>
+                                    <View style={geral.singleDados}>
+                                        <Text style={geral.infoDados}>156115</Text> 
+                                        <Text style={geral.infoDados}>desde Abril de 2017</Text> 
+                                    </View> 
+                                </View>
+                            </View>
+                            <View style={geral.infoBoxImg}>
+                                <Image source={require('../assets/icons/carteira-cinza.png')} />
+                            </View>
+                        </View>
+
+                        
+                        <View style={geral.boxSingle}>
+                            <View style={geral.InfoBoxArea}>
+                                <Text style={geral.titleSingle}>Julho de 2021</Text> 
+                                <View style={geral.areaData}>
+                                    <Text style={geral.singleData}>300</Text> 
+                                    <Text style={geral.singleData}>Devoluções</Text> 
+                                </View>
+
+                                
+                                <View style={geral.listDados}>
+                                    <View style={geral.singleDados}>
+                                        <Text style={geral.infoDados}>156115</Text> 
+                                        <Text style={geral.infoDados}>desde Abril de 2017</Text> 
+                                    </View> 
+                                </View>
+                            </View>
+                            <View style={geral.infoBoxImg}>
+                                <Image source={require('../assets/icons/home-cinza.png')} />
                             </View>
                         </View>
                     </View>
@@ -185,16 +251,103 @@ function reciclerGrafico() {
 
     return (
         <View
-            style={styles.container}
+            style={grafico.container}
         >
             <SafeAreaView
-                style={styles.safearea}
+                style={grafico.safearea}
             >
                 
                 <ScrollView>
-                    <View style={styles.boxContainer}>
-                        <Text style={styles.titlePage}>Recolhimento</Text>
+                    <View style={grafico.boxContainer}>
+                        <Text style={grafico.titlePage}>Recolhimento</Text>
+                        <BarChart
+                        style={{
+                        marginVertical: 8,
+                        borderRadius: 5,
+                        }}
+                        data={dataGraphic}
+                        width={Dimensions.get("window").width - 30}
+                        height={220}
+                        yAxisLabel="R$ "
+                        yAxisSuffix="k"
+                        chartConfig={{
+                            backgroundColor: "#1F265B",
+                            backgroundGradientFrom: "#1F265B",
+                            backgroundGradientTo: "#3F467B",
+                            decimalPlaces: 0, // optional, defaults to 2dp
+                            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                            labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                            style: {
+                                borderRadius: 5
+                            },
+                            propsForDots: {
+                                r: "6",
+                                strokeWidth: "2",
+                                stroke: "#198942"
+                            }
+                        }}
+                        />
                         
+
+                        {/* <LineChart
+                            data={dataGraphic}
+                            width={Dimensions.get("window").width - 30} // from react-native
+                            height={220}
+                            yAxisLabel="R$ "
+                            yAxisSuffix="k"
+                            yAxisInterval={1} // optional, defaults to 1
+                            chartConfig={{
+                                backgroundColor: "#1F265B",
+                                backgroundGradientFrom: "#1F265B",
+                                backgroundGradientTo: "#3F467B",
+                                decimalPlaces: 0, // optional, defaults to 2dp
+                                color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                                labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                                style: {
+                                    borderRadius: 5
+                                },
+                                propsForDots: {
+                                    r: "6",
+                                    strokeWidth: "2",
+                                    stroke: "#198942"
+                                }
+                            }}
+                            bezier
+                            style={{
+                            marginVertical: 8,
+                            borderRadius: 5,
+                            }}
+                        />
+                        */}
+                        <View>
+                            <View style={grafico.areaDados}>                               
+                                <View style={grafico.viewImage}>
+                                    <Image style={grafico.imagesIcones} source={require('../assets/icons/geral-gray.png')} />
+                                </View>
+                                <View>
+                                    <Text style={grafico.titleData}>150 casas</Text>
+                                    <Text style={grafico.subtitleData}>Casas Protegidas</Text>
+                                </View>
+                            </View>
+                            <View style={grafico.areaDados}>                           
+                                <View style={grafico.viewImage}>
+                                    <Image style={grafico.imagesIcones} source={require('../assets/icons/home-gray.png')} />
+                                </View>
+                                <View>
+                                    <Text style={grafico.titleData}>150 casas</Text>
+                                    <Text style={grafico.subtitleData}>Casas Protegidas</Text>
+                                </View>
+                            </View>
+                            <View style={grafico.areaDados}>                           
+                                <View style={grafico.viewImage}>
+                                    <Image style={grafico.imagesIcones} source={require('../assets/icons/carteira-gray.png')} />
+                                </View>
+                                <View>
+                                    <Text style={grafico.titleData}>150 casas</Text>
+                                    <Text style={grafico.subtitleData}>Casas Protegidas</Text>
+                                </View>
+                            </View>
+                        </View>
                     </View>
                 </ScrollView>
             </SafeAreaView>
@@ -206,16 +359,26 @@ function reciclerPCI() {
 
     return (
         <View
-            style={styles.container}
+            style={pci.container}
         >
             <SafeAreaView
-                style={styles.safearea}
+                style={pci.safearea}
             >
                 
                 <ScrollView>
-                    <View style={styles.boxContainer}>
-                        <Text style={styles.titlePage}>Recolhimento</Text>
-                        
+                    <View style={pci.boxContainer}>
+                        <Text style={pci.titlePage}>Recolhimento</Text>
+                        <View style={pci.areaPci}>
+                            <Text style={pci.titleSection}>Riomix Celumassa</Text>
+                            <Text style={pci.subtitleSection}>Palestras de Conscientização e Incentivo</Text>
+                            <Text style={pci.infoContact}>Palestra na Sede da Riomix, no dia 20 de Agosto de 2021, com o tema "PES - PROGRAMA DE EMBOÇO SOCIAL". </Text>
+                            <Text style={pci.infoContact}>INSCREVA-SE AGORA!</Text>
+                        </View>             
+                        <View style={pci.areaCenterButton}>
+                            <Pressable style={pci.buttonMain}>
+                                <Text style={pci.buttonMainTitle}>Envia Mensagem</Text>
+                            </Pressable>
+                        </View>
                     </View>
                 </ScrollView>
             </SafeAreaView>
@@ -414,21 +577,27 @@ const geral = StyleSheet.create({
         borderRadius: 10,
         padding: 15,
         marginVertical: 15,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     },
-    
+        infoBoxImg: {
+            flexDirection: 'row',
+            justifyContent: 'flex-end',
+        },
     titleSingle: {
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: '700',
         color: '#1F265B'
     },
     areaData: {
-        flexDirection: 'row',
         marginVertical: 5,
         justifyContent: 'flex-start',
+        marginVertical: 30,
     },
         singleData: {
-            fontSize: 11,
+            fontSize: 30,
             paddingRight: 10,
+            color: '#198942',
         },
 
     listDados: {
@@ -436,19 +605,153 @@ const geral = StyleSheet.create({
         
     },
         singleDados: {
-            justifyContent: 'space-between',
+            justifyContent: 'flex-start',
             flexDirection: 'row',
-            borderBottomColor: '#D2D2D2',
-            borderBottomWidth: 2,
             paddingVertical: 5,
         },
             infoDados: {
                 fontWeight: 'bold',
                 color: '#808080',
+                marginRight: 15,
             },
             infoDadosVerde: {
                 fontWeight: 'bold',
                 color: '#198942',
             },
 
+});
+
+const pci = StyleSheet.create({
+    container: {
+        flex: 1,
+        display: "flex",
+    },
+    boxContainer: {
+        padding: 15
+    },
+    titlePage: {
+        fontSize: 16,
+        textTransform: 'uppercase',
+        fontWeight: '700',
+        color: '#198942'
+    },
+    areaPci: {
+        marginVertical: 15
+    },
+    boxSingle: {
+        backgroundColor: '#dedede',
+        borderRadius: 10,
+        padding: 15,
+        marginVertical: 15,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+        infoBoxImg: {
+            flexDirection: 'row',
+            justifyContent: 'flex-end',
+        },
+    titleSingle: {
+        fontSize: 18,
+        fontWeight: '700',
+        color: '#1F265B'
+    },
+
+            areaCenterButton: {
+                display: 'flex',
+            },
+            buttonMain: {
+                paddingVertical: 10,
+                paddingHorizontal: 10,
+                marginVertical: 10,
+                backgroundColor: '#1F265B',
+                borderRadius: 7,
+                width: 200,
+                display: 'flex',
+                justifyContent: 'center',
+            },
+                buttonMainTitle: {
+                    textAlign: 'center',
+                    color: '#efefef',
+                    fontSize: 17,
+                },
+
+                
+    titleSection: {
+        fontSize: 18,
+        color: '#1F265B',
+        marginBottom: 10,
+        fontWeight: 'bold',
+    },
+    subtitleSection: {
+        fontSize: 16,
+        color: '#1F265B',
+        marginBottom: 10,
+    },
+    infoContact: {
+        fontSize: 16,
+        color: '#808080',
+        marginBottom: 15, 
+    },
+    textContact: {
+        fontSize: 16,
+        color: '#808080',
+    },
+});
+
+
+
+const grafico = StyleSheet.create({
+    container: {
+        flex: 1,
+        display: "flex",
+    },
+    boxContainer: {
+        padding: 15
+    },
+    titlePage: {
+        fontSize: 16,
+        textTransform: 'uppercase',
+        fontWeight: '700',
+        color: '#198942'
+    },
+    areaPci: {
+        marginVertical: 15
+    },
+    boxSingle: {
+        backgroundColor: '#dedede',
+        borderRadius: 10,
+        padding: 15,
+        marginVertical: 15,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+        infoBoxImg: {
+            flexDirection: 'row',
+            justifyContent: 'flex-end',
+        },
+    titleSingle: {
+        fontSize: 18,
+        fontWeight: '700',
+        color: '#1F265B'
+    },
+    areaDados: {
+        marginVertical: 15,
+        flexDirection: 'row',
+    },
+    viewImage: {
+        marginRight: 15,
+        marginBottom: 10,
+    },
+    imagesIcones: {
+
+    },
+    titleData: {
+        fontSize: 18,
+        color: '#808080',
+        fontWeight: 'bold',
+    },
+    subtitleData: {
+        fontSize: 14,
+        color: '#808080',
+    },
 });
