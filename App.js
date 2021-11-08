@@ -11,10 +11,13 @@ import News from './pages/listNews';
 import Media from './pages/media';
 import Contact from './pages/contact';
 
-const Drawer = createDrawerNavigator();
+import HomeLogin from './pages/login/Home';
 
-export default function App() {
-  return (
+var logged = false;
+
+const Drawer = createDrawerNavigator();
+function login() {
+  return(
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home" drawerPosition="right">
         <Drawer.Screen name="Início" component={Home} />
@@ -27,5 +30,18 @@ export default function App() {
       </Drawer.Navigator>
     </NavigationContainer>
   );
+}
+
+export default function App() {
+  if (logged) {
+    return (
+      login()
+    )
+  }
+  else {
+    return(
+      <HomeLogin />
+    );
+  }
 }
 

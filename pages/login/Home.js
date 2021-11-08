@@ -1,4 +1,4 @@
-import * from 'react';
+import * as React from 'react';
 
 import { Text, View, StyleSheet, Image, SafeAreaView, TextInput, Pressable } from 'react-native';
 
@@ -6,7 +6,7 @@ export default class HomeLogin extends React.Component {
     render() {
         return (
             <SafeAreaView style={styles.container}>
-                <Image source={require('./arquivos/logotipo.png')} />
+                <Image source={require('../../assets/logotipo.png')} />
                 <View style={styles.boxForm}>
                     <Text style={styles.titleForm}>Entrar em sua conta</Text>
                     <TextInput
@@ -60,13 +60,6 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderRadius: 5,
         padding: 10,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
     },
     textForgot: {
         color: '#1F265B',
