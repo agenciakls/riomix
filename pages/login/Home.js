@@ -1,9 +1,32 @@
-import * as React from 'react';
+import React, { useEffect }  from 'react';
 
-import { Text, View, StyleSheet, Image, SafeAreaView, TextInput, Pressable } from 'react-native';
+import { Text, View, StyleSheet, Image, SafeAreaView, TextInput, Pressable, BackHandler, Alert } from 'react-native';
+
+
+
+const backAction = () => {
+    var entrar = true;
+    if (entrar) {
+        Alert.alert("Entrar", "Verifique os dados para continuar", [
+            {
+              text: "Ok",
+              onPress: () => null,
+              style: "cancel"
+            }
+          ]);
+    }
+  };
 
 export default class HomeLogin extends React.Component {
+    
     render() {
+          /*
+          useEffect(() => {
+              BackHandler.addEventListener("hardwareBackPress", backAction);
+              return () =>
+              BackHandler.removeEventListener("hardwareBackPress", backAction);
+          }, []);
+          */
         return (
             <SafeAreaView style={styles.container}>
                 <Image source={require('../../assets/logotipo.png')} />
@@ -20,7 +43,7 @@ export default class HomeLogin extends React.Component {
                     />
                     <Text style={styles.textForgot}>Esqueci minha senha</Text>
                     <View style={styles.areaCenterButton}>
-                        <Pressable style={styles.buttonMain}>
+                        <Pressable style={styles.buttonMain} onPress={backAction}>
                             <Text style={styles.buttonMainTitle}>Entrar</Text>
                         </Pressable>
                         

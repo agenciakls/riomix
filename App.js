@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-
+import 'react-native-gesture-handler';
 
 import Home from './pages/home';
 import About from './pages/about';
@@ -13,10 +13,8 @@ import Contact from './pages/contact';
 
 import HomeLogin from './pages/login/Home';
 
-var logged = false;
-
 const Drawer = createDrawerNavigator();
-function login() {
+function Login() {
   return(
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home" drawerPosition="right">
@@ -32,16 +30,17 @@ function login() {
   );
 }
 
+
+var logged = false;
 export default function App() {
   if (logged) {
     return (
-      login()
+      <Login />
     )
   }
   else {
     return(
       <HomeLogin />
     );
-  }
+  }                    
 }
-
