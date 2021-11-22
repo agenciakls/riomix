@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { View, StyleSheet, SafeAreaView, Platform, FlatList } from 'react-native'
-import Header from '../src/modules/header';
+import Header from '../../src/modules/header';
 
 import {StatusBar} from 'react-native';
 
@@ -17,7 +17,7 @@ const DATA = [
     { id: '58694a0f-3da1-471f-bd96-145571e29d79', title: 'Conhecendo a Família Riomix', },
 ];
 
-import { renderItem } from '../src/modules/multiMedia';
+import { renderItem } from '../../src/modules/multiMedia';
 
 export default class Media extends React.Component {
     

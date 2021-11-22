@@ -1,7 +1,7 @@
 
 import * as React from 'react'
 import { View, StyleSheet, SafeAreaView, Platform, ScrollView, Text, Pressable, TextInput } from 'react-native'
-import Header from '../src/modules/header';
+import Header from '../../src/modules/header';
 
 import {StatusBar} from 'react-native';
 import { faBezierCurve } from '@fortawesome/free-solid-svg-icons';

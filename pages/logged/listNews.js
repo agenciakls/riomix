@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { View, StyleSheet, SafeAreaView, Platform, FlatList, ScrollView, Text, Image, TouchableHighlight } from 'react-native'
-import Header from '../src/modules/header';
+import Header from '../../src/modules/header';
 
 import {StatusBar} from 'react-native';
 
@@ -39,7 +39,7 @@ function singleNoticias() {
                             <Text style={styleSingle.aboutParagraph}>Nossa produção conta com matérias-primas de alta qualidade e um eficiente processo de fabricação automatizado, além de acompanhamento laboriatorial contínuo. Tudo para garantir a excelência que você precisa.</Text>
                             <Text style={styleSingle.aboutParagraph}>As principais vantagens de nossos produtos são a economia, a qualidade e a praticidade: eles vêm prontos para uso, basta adicionar água.</Text>
                         </View>
-                        <Image source={require('../assets/example/example-multimedia.png')} style={styleSingle.imageText} />
+                        <Image source={require('../../assets/example/example-multimedia.png')} style={styleSingle.imageText} />
                     </View>
                 </ScrollView>
             </SafeAreaView>
@@ -64,7 +64,7 @@ function listaNoticias({navigation}) {
                             <TouchableHighlight onPress={() => navigation.navigate('Notícia')}>
                                 <View style={styleNoticiaSingle.item}>
                                     <View>
-                                        <Image style={styleNoticiaSingle.imgNoticias} source={require('../assets/example/example-new-list.png')} />
+                                        <Image style={styleNoticiaSingle.imgNoticias} source={require('../../assets/example/example-new-list.png')} />
                                     </View>
                                     <View style={styleNoticiaSingle.boxText}>
                                         <Text style={styleNoticiaSingle.title}>{item.title}</Text>

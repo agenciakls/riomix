@@ -1,7 +1,7 @@
 
 import * as React from 'react'
 import { View, StyleSheet, Platform, Image, Text, ScrollView, SafeAreaView, Pressable } from 'react-native'
-import Header from '../src/modules/header';
+import Header from '../../src/modules/header';
 import {
     LineChart,
     BarChart,
@@ -193,7 +193,7 @@ function reciclerGeral() {
                                 </View>
                             </View>
                             <View style={geral.infoBoxImg}>
-                                <Image source={require('../assets/icons/riomix-cinza.png')} />
+                                <Image source={require('../../assets/icons/riomix-cinza.png')} />
                             </View>
                         </View>
 
@@ -215,7 +215,7 @@ function reciclerGeral() {
                                 </View>
                             </View>
                             <View style={geral.infoBoxImg}>
-                                <Image source={require('../assets/icons/carteira-cinza.png')} />
+                                <Image source={require('../../assets/icons/carteira-cinza.png')} />
                             </View>
                         </View>
 
@@ -237,7 +237,7 @@ function reciclerGeral() {
                                 </View>
                             </View>
                             <View style={geral.infoBoxImg}>
-                                <Image source={require('../assets/icons/home-cinza.png')} />
+                                <Image source={require('../../assets/icons/home-cinza.png')} />
                             </View>
                         </View>
                     </View>
@@ -322,7 +322,7 @@ function reciclerGrafico() {
                         <View>
                             <View style={grafico.areaDados}>                               
                                 <View style={grafico.viewImage}>
-                                    <Image style={grafico.imagesIcones} source={require('../assets/icons/geral-gray.png')} />
+                                    <Image style={grafico.imagesIcones} source={require('../../assets/icons/geral-gray.png')} />
                                 </View>
                                 <View>
                                     <Text style={grafico.titleData}>150 casas</Text>
@@ -331,7 +331,7 @@ function reciclerGrafico() {
                             </View>
                             <View style={grafico.areaDados}>                           
                                 <View style={grafico.viewImage}>
-                                    <Image style={grafico.imagesIcones} source={require('../assets/icons/home-gray.png')} />
+                                    <Image style={grafico.imagesIcones} source={require('../../assets/icons/home-gray.png')} />
                                 </View>
                                 <View>
                                     <Text style={grafico.titleData}>150 casas</Text>
@@ -340,7 +340,7 @@ function reciclerGrafico() {
                             </View>
                             <View style={grafico.areaDados}>                           
                                 <View style={grafico.viewImage}>
-                                    <Image style={grafico.imagesIcones} source={require('../assets/icons/carteira-gray.png')} />
+                                    <Image style={grafico.imagesIcones} source={require('../../assets/icons/carteira-gray.png')} />
                                 </View>
                                 <View>
                                     <Text style={grafico.titleData}>150 casas</Text>
@@ -401,22 +401,22 @@ function reciclerMain({ navigation }) {
                         <View style={styles.containerRecolhimento}>
                             <View style={styles.boxIcones}>
                                 <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('Recolhimento Individual')}>
-                                    <Image style={styles.imagesIcones} source={require('../assets/icons/individual.png')} />
+                                    <Image style={styles.imagesIcones} source={require('../../assets/icons/individual.png')} />
                                     <Text style={styles.textIcons}>BSC Individual</Text>
                                 </Pressable>
 
                                 <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('BSC Geral')}>
-                                    <Image style={styles.imagesIcones} source={require('../assets/icons/geral.png')} />
+                                    <Image style={styles.imagesIcones} source={require('../../assets/icons/geral.png')} />
                                     <Text style={styles.textIcons}>BSC Geral</Text>
                                 </Pressable>
 
                                 <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('Gráfico')}>
-                                    <Image style={styles.imagesIcones} source={require('../assets/icons/graficos.png')} />
+                                    <Image style={styles.imagesIcones} source={require('../../assets/icons/graficos.png')} />
                                     <Text style={styles.textIcons}>Gráfico</Text>
                                 </Pressable>
 
                                 <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('PCI')}>
-                                    <Image style={styles.imagesIcones} source={require('../assets/icons/pcis.png')} />
+                                    <Image style={styles.imagesIcones} source={require('../../assets/icons/pcis.png')} />
                                     <Text style={styles.textIcons}>PCIs</Text>
                                 </Pressable>
                             </View>

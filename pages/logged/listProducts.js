@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { View, StyleSheet, SafeAreaView, Platform, Text, Pressable, Image, ScrollView } from 'react-native';
 import { WebView } from 'react-native-webview';
-import Header from '../src/modules/header';
+import Header from '../../src/modules/header';
 
 import { StatusBar } from 'react-native';
 
@@ -23,7 +23,7 @@ function SingleLinha() {
                         <Text style={styles.titlePage}>LINHA TRADICIONAL</Text>
 
                         <View style={styles.singleBoxLinha}>
-                            <View style={styles.imgProduct}><Image source={require('../assets/files/contrapiso.png')} /></View>
+                            <View style={styles.imgProduct}><Image source={require('../../assets/files/contrapiso.png')} /></View>
                             <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
                             <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
                             <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
@@ -44,7 +44,7 @@ function SingleLinha() {
                         
 
                         <View style={styles.singleBoxLinha}>
-                            <View style={styles.imgProduct}><Image source={require('../assets/files/contrapiso.png')} /></View>
+                            <View style={styles.imgProduct}><Image source={require('../../assets/files/contrapiso.png')} /></View>
                             <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
                             <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
                             <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
@@ -65,7 +65,7 @@ function SingleLinha() {
                         
 
                         <View style={styles.singleBoxLinha}>
-                            <View style={styles.imgProduct}><Image source={require('../assets/files/contrapiso.png')} /></View>
+                            <View style={styles.imgProduct}><Image source={require('../../assets/files/contrapiso.png')} /></View>
                             <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
                             <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
                             <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
@@ -86,7 +86,7 @@ function SingleLinha() {
                         
 
                         <View style={styles.singleBoxLinha}>
-                            <View style={styles.imgProduct}><Image source={require('../assets/files/contrapiso.png')} /></View>
+                            <View style={styles.imgProduct}><Image source={require('../../assets/files/contrapiso.png')} /></View>
                             <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
                             <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
                             <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
@@ -126,7 +126,7 @@ function HomeProducts({navigation}) {
 
                         <View style={styles.containerLinhas}>
                             <View style={styles.linhasBoxImage}>
-                                <Image style={styles.linhasImage} source={require('../assets/img/linha-tradicional.png')} />
+                                <Image style={styles.linhasImage} source={require('../../assets/img/linha-tradicional.png')} />
                             </View>
                             <View style={styles.linhasBox}>
                                 <Text style={styles.linhasTitle}>Nossas Linhas</Text>
@@ -140,7 +140,7 @@ function HomeProducts({navigation}) {
 
                         <View style={styles.containerLinhas}>
                             <View style={styles.linhasBoxImage}>
-                                <Image style={styles.linhasImage} source={require('../assets/img/linha-tradicional.png')} />
+                                <Image style={styles.linhasImage} source={require('../../assets/img/linha-tradicional.png')} />
                             </View>
                             <View style={styles.linhasBox}>
                                 <Text style={styles.linhasTitle}>Nossas Linhas</Text>
@@ -154,7 +154,7 @@ function HomeProducts({navigation}) {
 
                         <View style={styles.containerLinhas}>
                             <View style={styles.linhasBoxImage}>
-                                <Image style={styles.linhasImage} source={require('../assets/img/linha-tradicional.png')} />
+                                <Image style={styles.linhasImage} source={require('../../assets/img/linha-tradicional.png')} />
                             </View>
                             <View style={styles.linhasBox}>
                                 <Text style={styles.linhasTitle}>Nossas Linhas</Text>
@@ -168,7 +168,7 @@ function HomeProducts({navigation}) {
 
                         <View style={styles.containerLinhas}>
                             <View style={styles.linhasBoxImage}>
-                                <Image style={styles.linhasImage} source={require('../assets/img/linha-tradicional.png')} />
+                                <Image style={styles.linhasImage} source={require('../../assets/img/linha-tradicional.png')} />
                             </View>
                             <View style={styles.linhasBox}>
                                 <Text style={styles.linhasTitle}>Nossas Linhas</Text>

@@ -17,16 +17,7 @@ const backAction = () => {
     }
   };
 
-export default class HomeLogin extends React.Component {
-    
-    render() {
-          /*
-          useEffect(() => {
-              BackHandler.addEventListener("hardwareBackPress", backAction);
-              return () =>
-              BackHandler.removeEventListener("hardwareBackPress", backAction);
-          }, []);
-          */
+  export default function HomeLogin() {
         return (
             <SafeAreaView style={styles.container}>
                 <Image source={require('../../assets/logotipo.png')} />
@@ -57,7 +48,6 @@ export default class HomeLogin extends React.Component {
                 </View>
             </SafeAreaView>
         );
-    }
 }   
 
 

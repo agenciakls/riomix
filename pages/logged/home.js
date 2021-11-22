@@ -3,7 +3,7 @@
 import React from 'react'
 import { View, StyleSheet, SafeAreaView, Platform, Text, Image, Pressable } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
-import Header from '../src/modules/header';
+import Header from '../../src/modules/header';
 import {StatusBar} from 'react-native';
 
 import { FontAwesome } from '@expo/vector-icons';
@@ -60,22 +60,22 @@ export default class Home extends React.Component {
                                 </View>
                                 <View style={styles.boxIcones}>
                                     <View style={styles.boxIconesRecolhimento}>
-                                        <Image style={styles.imagesIcones} source={require('../assets/icons/individual.png')} />
+                                        <Image style={styles.imagesIcones} source={require('../../assets/icons/individual.png')} />
                                         <Text style={styles.textIcons}>BSC Individual</Text>
                                     </View>
                                     
                                     <View style={styles.boxIconesRecolhimento}>
-                                        <Image style={styles.imagesIcones} source={require('../assets/icons/geral.png')} />
+                                        <Image style={styles.imagesIcones} source={require('../../assets/icons/geral.png')} />
                                         <Text style={styles.textIcons}>BSC Geral</Text>
                                     </View>
                                     
                                     <View style={styles.boxIconesRecolhimento}>
-                                        <Image style={styles.imagesIcones} source={require('../assets/icons/graficos.png')} />
+                                        <Image style={styles.imagesIcones} source={require('../../assets/icons/graficos.png')} />
                                         <Text style={styles.textIcons}>Gráfico</Text>
                                     </View>
                                     
                                     <View style={styles.boxIconesRecolhimento}>
-                                        <Image style={styles.imagesIcones} source={require('../assets/icons/pcis.png')} />
+                                        <Image style={styles.imagesIcones} source={require('../../assets/icons/pcis.png')} />
                                         <Text style={styles.textIcons}>PCIs</Text>
                                     </View>
                                 </View>
@@ -91,7 +91,7 @@ export default class Home extends React.Component {
                                 
                                 </View>
                                 <View style={styles.linhasBoxImage}>
-                                    <Image style={styles.linhasImage} source={require('../assets/img/linha-tradicional.png')} />
+                                    <Image style={styles.linhasImage} source={require('../../assets/img/linha-tradicional.png')} />
                                 </View>
                             </View>
 
@@ -101,11 +101,11 @@ export default class Home extends React.Component {
                                     <Text style={styles.newsText}>Webinar com nosso diretor Rafael Vieira na Semana do Meio Ambiente da MP Incorporadora</Text>
                                 </View>
                                 <View style={styles.singleNoticias}>
-                                    <Image style={styles.newsImg} source={require('../assets/example/example-news-1.png')} />
+                                    <Image style={styles.newsImg} source={require('../../assets/example/example-news-1.png')} />
                                     <Text style={styles.newsText}>Riomix presente em Programa de Capacitação dos Objetivos de Desenvolvimento Sustentável da ONU</Text>
                                 </View>
                                 <View style={styles.singleNoticias}>
-                                    <Image style={styles.newsImg} source={require('../assets/example/example-news-2.png')} />
+                                    <Image style={styles.newsImg} source={require('../../assets/example/example-news-2.png')} />
                                     <Text style={styles.newsText}>A Riomix-Celumassa recebe o Prêmio Firjan Ambiental 2019</Text>
                                 </View>
                                 <View style={styles.areaButtonNoticias}>

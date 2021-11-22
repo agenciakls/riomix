@@ -2,7 +2,7 @@
 import React from 'react'
 import { View, StyleSheet, SafeAreaView, Platform, Text, Pressable, Image, ScrollView } from 'react-native'
 import { WebView } from 'react-native-webview';
-import Header from '../src/modules/header';
+import Header from '../../src/modules/header';
 
 import {StatusBar} from 'react-native';
 import { faBezierCurve } from '@fortawesome/free-solid-svg-icons';
@@ -20,7 +20,7 @@ export default class About extends React.Component {
                 <ScrollView>
                     <View style={styles.boxContainer}>
                         <Text style={styles.titlePage}>QUEM SOMOS</Text>
-                        <View style={styles.imgAbout}><Image source={require('../assets/logo-sobre.png')} /></View>
+                        <View style={styles.imgAbout}><Image source={require('../../assets/logo-sobre.png')} /></View>
                         <View>
 
                         
@@ -36,7 +36,7 @@ export default class About extends React.Component {
                             
                         </View>
                     </View>
-                    <Image source={require('../assets/quem-somos.jpg')} />
+                    <Image source={require('../../assets/quem-somos.jpg')} />
                     
                     <View style={styles.boxContainer}>
                         <View>
@@ -62,7 +62,7 @@ export default class About extends React.Component {
                         automaticallyAdjustContentInsets={false}
                         source={{ uri: 'https://www.youtube.com/embed/ajyUtDJ-4C4' }}
                     />
-                    <View style={styles.imgAbout}><Image source={require('../assets/timeline.png')} /></View>
+                    <View style={styles.imgAbout}><Image source={require('../../assets/timeline.png')} /></View>
                 </ScrollView>
                 
             </SafeAreaView>
