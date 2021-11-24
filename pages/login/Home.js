@@ -2,7 +2,9 @@ import React, { useEffect }  from 'react';
 
 import { Text, View, StyleSheet, Image, SafeAreaView, TextInput, Pressable, BackHandler, Alert } from 'react-native';
 
+import { createStackNavigator } from '@react-navigation/stack';
 
+const Stack = createStackNavigator();
 
 const backAction = () => {
     var entrar = true;
@@ -17,7 +19,7 @@ const backAction = () => {
     }
   };
 
-  export default function HomeLogin() {
+  export default function HomeLogin({navigation}) {
         return (
             <SafeAreaView style={styles.container}>
                 <Image source={require('../../assets/logotipo.png')} />
@@ -34,7 +36,7 @@ const backAction = () => {
                     />
                     <Text style={styles.textForgot}>Esqueci minha senha</Text>
                     <View style={styles.areaCenterButton}>
-                        <Pressable style={styles.buttonMain} onPress={backAction}>
+                        <Pressable style={styles.buttonMain} onPress={() => navigation.navigate('Conta')}>
                             <Text style={styles.buttonMainTitle}>Entrar</Text>
                         </Pressable>
                         

@@ -16,17 +16,15 @@ const Drawer = createDrawerNavigator();
 
 export default function MainLogged() {
   return(
-    <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home" drawerPosition="right">
-        <Drawer.Screen name="Início" component={Home} />
-        <Drawer.Screen name="Quem Somos" component={About} />
-        <Drawer.Screen name="Produtos" component={Products} />
-        <Drawer.Screen name="Recolhimentos" component={Recicler} />
-        <Drawer.Screen name="Notícias" component={News} />
-        <Drawer.Screen name="Multimídia" component={Media} />
-        <Drawer.Screen name="Contato" component={Contact} />
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <Drawer.Navigator initialRouteName="Home" drawerPosition="right">
+      <Drawer.Screen name="Início" component={Home} />
+      <Drawer.Screen name="Quem Somos" component={About} />
+      <Drawer.Screen name="Produtos" component={Products} />
+      <Drawer.Screen name="Recolhimentos" component={Recicler} />
+      <Drawer.Screen name="Notícias" component={News} />
+      <Drawer.Screen name="Multimídia" component={Media} />
+      <Drawer.Screen name="Contato" component={Contact} />
+    </Drawer.Navigator>
   );
 }
 
