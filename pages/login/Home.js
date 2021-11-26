@@ -1,25 +1,64 @@
-import React, { useEffect }  from 'react';
+import React, { useEffect, Component }  from 'react';
+import PropTypes from 'prop-types';
+
+import { StatusBar } from 'react-native';
+import { StackActions, NavigationActions } from 'react-navigation';
 
 import { Text, View, StyleSheet, Image, SafeAreaView, TextInput, Pressable, BackHandler, Alert } from 'react-native';
 
-import { createStackNavigator } from '@react-navigation/stack';
-
-const Stack = createStackNavigator();
-
-const backAction = () => {
-    var entrar = true;
-    if (entrar) {
-        Alert.alert("Entrar", "Verifique os dados para continuar", [
-            {
-              text: "Ok",
-              onPress: () => null,
-              style: "cancel"
-            }
-          ]);
-    }
-  };
-
-  export default function HomeLogin({navigation}) {
+export default class HomeLogin extends Component {
+    static navigationOptions = {
+      header: null,
+    };
+  
+    static propTypes = {
+      navigation: PropTypes.shape({
+        navigate: PropTypes.func,
+        dispatch: PropTypes.func,
+      }).isRequired,
+    };
+  
+    state = {
+      email: 'cso.junior1996@gmail.com',
+      password: '123456',
+      error: '',
+    };
+  
+    handleEmailChange = (email) => {
+      this.setState({ email });
+    };
+  
+    handlePasswordChange = (password) => {
+      this.setState({ password });
+    };
+  
+    handleCreateAccountPress = () => {
+      this.props.navigation.navigate('SignUp');
+    };
+  
+    handleSignInPress = async () => {
+      if (this.state.email.length === 0 || this.state.password.length === 0) {
+        this.setState({ error: 'Preencha usuário e senha para continuar!' }, () => false);
+      } else {
+        try {
+          const response = await api.post('/login', {
+            email: this.state.email,
+            password: this.state.password,
+          });
+  
+          const resetAction = StackActions.reset({
+            index: 0,
+            actions: [
+              NavigationActions.navigate({ routeName: 'Main', params: { token: response.data.token } }),
+            ],
+          });
+          this.props.navigation.dispatch(resetAction);
+        } catch (_err) {
+          this.setState({ error: 'Houve um problema com o login, verifique suas credenciais!' });
+        }
+      }
+    };
+    render({navigation}) {
         return (
             <SafeAreaView style={styles.container}>
                 <Image source={require('../../assets/logotipo.png')} />
@@ -28,28 +67,38 @@ const backAction = () => {
                     <TextInput
                         style={styles.input}
                         placeholder="Usuário ou E-mail"
+                        value={this.state.email}
+                        onChangeText={this.handleEmailChange}
+                        autoCapitalize="none"
+                        autoCorrect={false}
                     />
                     <TextInput
                         style={styles.input}
                         placeholder="Senha"
                         secureTextEntry={true}
+                        value={this.state.password}
+                        onChangeText={this.handlePasswordChange}
+                        autoCapitalize="none"
+                        autoCorrect={false}
                     />
-                    <Text style={styles.textForgot}>Esqueci minha senha</Text>
+                    <Text style={styles.textForgot} onPress={() => navigation.navigate('Recuperar')}>Esqueci minha senha</Text>
+                    {this.state.error.length !== 0 && <ErrorMessage>{this.state.error}</ErrorMessage>}
                     <View style={styles.areaCenterButton}>
                         <Pressable style={styles.buttonMain} onPress={() => navigation.navigate('Conta')}>
                             <Text style={styles.buttonMainTitle}>Entrar</Text>
                         </Pressable>
                         
-                        <Pressable style={styles.buttonSecundary}>
+                        <Pressable style={styles.buttonSecundary} onPress={() => navigation.navigate('Conta')}>
                             <Text style={styles.buttonSecundaryTitle}>Entrar sem cadastro</Text>
                         </Pressable>
                     </View>
                 </View>
                 <View style={styles.contentConta}>
-                    <Text style={styles.textConta}>Ainda não tem conta?</Text><Text style={styles.textCadastre}>Cadastre-se</Text>
+                    <Text style={styles.textConta}>Ainda não tem conta?</Text><Text style={styles.textCadastre} onPress={() => navigation.navigate('Registrar')}>Cadastre-se</Text>
                 </View>
             </SafeAreaView>
         );
+    }
 }   
 
 
@@ -71,7 +120,7 @@ const styles = StyleSheet.create({
     },
     input: {
         marginVertical: 10,
-        borderColor: '#efefef',
+        borderColor: '#cdcdcd',
         borderWidth: 2,
         borderRadius: 5,
         padding: 10,

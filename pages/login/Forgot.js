@@ -22,31 +22,21 @@ const backAction = () => {
   export default function ForgotPassword({navigation}) {
         return (
             <SafeAreaView style={styles.container}>
-                <Image source={require('../../assets/logotipo.png')} />
+                <Image source={require('../../assets/logo.png')} />
                 <View style={styles.boxForm}>
-                    <Text style={styles.titleForm}>Entrar em sua conta</Text>
+                    <Text style={styles.titleForm}>Recuperar Senha</Text>
                     <TextInput
                         style={styles.input}
-                        placeholder="Usuário ou E-mail"
+                        placeholder="E-mail"
                     />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Senha"
-                        secureTextEntry={true}
-                    />
-                    <Text style={styles.textForgot}>Esqueci minha senha</Text>
                     <View style={styles.areaCenterButton}>
                         <Pressable style={styles.buttonMain} onPress={() => navigation.navigate('Conta')}>
-                            <Text style={styles.buttonMainTitle}>Entrar</Text>
-                        </Pressable>
-                        
-                        <Pressable style={styles.buttonSecundary}>
-                            <Text style={styles.buttonSecundaryTitle}>Entrar sem cadastro</Text>
+                            <Text style={styles.buttonMainTitle}>Recuperar</Text>
                         </Pressable>
                     </View>
                 </View>
                 <View style={styles.contentConta}>
-                    <Text style={styles.textConta}>Ainda não tem conta?</Text><Text style={styles.textCadastre}>Cadastre-se</Text>
+                    <Text style={styles.textCadastre} onPress={() => navigation.navigate('Login')}>&lt; Voltar ao Login</Text>
                 </View>
             </SafeAreaView>
         );
@@ -71,7 +61,7 @@ const styles = StyleSheet.create({
     },
     input: {
         marginVertical: 10,
-        borderColor: '#efefef',
+        borderColor: '#cdcdcd',
         borderWidth: 2,
         borderRadius: 5,
         padding: 10,

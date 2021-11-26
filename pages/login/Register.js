@@ -22,31 +22,45 @@ const backAction = () => {
   export default function Register({navigation}) {
         return (
             <SafeAreaView style={styles.container}>
-                <Image source={require('../../assets/logotipo.png')} />
+                <Image source={require('../../assets/logo.png')} />
                 <View style={styles.boxForm}>
-                    <Text style={styles.titleForm}>Entrar em sua conta</Text>
+                    <Text style={styles.titleArea}>Cadastre-se para receber informações!</Text>
+                    <Text style={styles.titleForm}>Informações de contato</Text>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Nome"
+                    />
                     <TextInput
                         style={styles.input}
                         placeholder="Usuário ou E-mail"
                     />
                     <TextInput
                         style={styles.input}
-                        placeholder="Senha"
+                        placeholder="Telefone"
                         secureTextEntry={true}
                     />
-                    <Text style={styles.textForgot}>Esqueci minha senha</Text>
+                    <Text style={styles.titleForm}>Dados de acesso</Text>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Nome"
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Usuário ou E-mail"
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Telefone"
+                        secureTextEntry={true}
+                    />
                     <View style={styles.areaCenterButton}>
                         <Pressable style={styles.buttonMain} onPress={() => navigation.navigate('Conta')}>
                             <Text style={styles.buttonMainTitle}>Entrar</Text>
                         </Pressable>
-                        
-                        <Pressable style={styles.buttonSecundary}>
-                            <Text style={styles.buttonSecundaryTitle}>Entrar sem cadastro</Text>
-                        </Pressable>
                     </View>
                 </View>
                 <View style={styles.contentConta}>
-                    <Text style={styles.textConta}>Ainda não tem conta?</Text><Text style={styles.textCadastre}>Cadastre-se</Text>
+                    <Text style={styles.textCadastre} onPress={() => navigation.navigate('Login')}>&lt; Voltar ao Login</Text>
                 </View>
             </SafeAreaView>
         );
@@ -63,15 +77,24 @@ const styles = StyleSheet.create({
         width: '80%',
         marginTop: 50
     },
-    titleForm: {
+    titleArea: {
         fontSize: 18,
+        fontWeight: '700',
+        color: '#1F265B',
+        textAlign: 'center',
+        marginVertical: 12,
+
+    },
+    
+    titleForm: {
+        fontSize: 14,
         fontWeight: '700',
         color: '#198942',
 
     },
     input: {
         marginVertical: 10,
-        borderColor: '#efefef',
+        borderColor: '#cdcdcd',
         borderWidth: 2,
         borderRadius: 5,
         padding: 10,
