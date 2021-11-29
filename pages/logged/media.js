@@ -1,8 +1,7 @@
 
 import React from 'react'
 import { View, StyleSheet, SafeAreaView, Platform, FlatList } from 'react-native'
-import Header from '../../src/modules/header';
-
+import Header from '../modules/header';
 import {StatusBar} from 'react-native';
 
 const DATA = [

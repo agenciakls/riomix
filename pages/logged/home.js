@@ -3,7 +3,7 @@
 import React from 'react'
 import { View, StyleSheet, SafeAreaView, Platform, Text, Image, Pressable } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
-import Header from '../../src/modules/header';
+import Header from '../modules/header';
 import {StatusBar} from 'react-native';
 
 import { FontAwesome } from '@expo/vector-icons';

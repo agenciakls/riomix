@@ -1,7 +1,7 @@
 
 import * as React from 'react'
 import { View, StyleSheet, Platform, Image, Text, ScrollView, SafeAreaView, Pressable } from 'react-native'
-import Header from '../../src/modules/header';
+import Header from '../modules/header';
 import {
     LineChart,
     BarChart,

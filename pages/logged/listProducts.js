@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { View, StyleSheet, SafeAreaView, Platform, Text, Pressable, Image, ScrollView } from 'react-native';
 import { WebView } from 'react-native-webview';
-import Header from '../../src/modules/header';
+import Header from '../modules/header';
 
 import { StatusBar } from 'react-native';
 
