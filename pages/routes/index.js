@@ -4,7 +4,7 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { HomeLogin } from '../login/Home';
+import HomeLogin from '../login/Home';
 import ForgotPassword from '../login/Forgot';
 import Register from '../login/Register';
 import MainLogged from '../logged/main';

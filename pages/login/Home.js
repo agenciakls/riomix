@@ -1,64 +1,71 @@
-import React, { useEffect, Component }  from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { StatusBar } from 'react-native';
 import { StackActions, NavigationActions } from 'react-navigation';
 
-import { Text, View, StyleSheet, Image, SafeAreaView, TextInput, Pressable, BackHandler, Alert } from 'react-native';
+import api from '../routes/api';
+
+import { Text, View, StyleSheet, Image, SafeAreaView, TextInput, Pressable } from 'react-native';
 
 export default class HomeLogin extends Component {
     static navigationOptions = {
-      header: null,
+        header: null,
     };
-  
+
     static propTypes = {
-      navigation: PropTypes.shape({
-        navigate: PropTypes.func,
-        dispatch: PropTypes.func,
-      }).isRequired,
+        navigation: PropTypes.shape({
+            navigate: PropTypes.func,
+            dispatch: PropTypes.func,
+        }).isRequired,
     };
-  
+
     state = {
-      email: 'cso.junior1996@gmail.com',
-      password: '123456',
-      error: '',
+        email: 'fabiofreitassilvacontato@gmail.com',
+        password: '5s2w9s2v',
+        error: '',
     };
-  
+
     handleEmailChange = (email) => {
-      this.setState({ email });
+        this.setState({ email });
     };
-  
+
     handlePasswordChange = (password) => {
-      this.setState({ password });
+        this.setState({ password });
     };
-  
+
     handleCreateAccountPress = () => {
-      this.props.navigation.navigate('SignUp');
+        this.props.navigation.navigate('Conta')
     };
-  
+
     handleSignInPress = async () => {
-      if (this.state.email.length === 0 || this.state.password.length === 0) {
-        this.setState({ error: 'Preencha usuário e senha para continuar!' }, () => false);
-      } else {
-        try {
-          const response = await api.post('/login', {
-            email: this.state.email,
-            password: this.state.password,
-          });
-  
-          const resetAction = StackActions.reset({
-            index: 0,
-            actions: [
-              NavigationActions.navigate({ routeName: 'Main', params: { token: response.data.token } }),
-            ],
-          });
-          this.props.navigation.dispatch(resetAction);
-        } catch (_err) {
-          this.setState({ error: 'Houve um problema com o login, verifique suas credenciais!' });
+        this.setState({ error: 'Aguarde...' });
+        if (this.state.email.length === 0 || this.state.password.length === 0) {
+            this.setState({ error: 'Preencha usuário e senha para continuar!' }, () => false);
+        } else {
+            try {
+                const response = await api.post('/login', {
+                    username: this.state.email,
+                    password: this.state.password,
+                });
+                if (!response.data.status) {
+                    // this.props.navigation.navigate('Conta');
+                    const resetAction = StackActions.reset({
+                        index: 0,
+                        actions: [
+                            NavigationActions.navigate({ routeName: 'Conta', params: { token: response.data.status } }),
+                        ],
+                    });
+                    this.props.navigation.dispatch(resetAction);
+                }
+                else {
+                    this.setState({ error: 'Verifique a senha para continuar' });
+                }
+            } catch (_err) {
+                this.setState({ error: 'Houve um problema com o login, verifique suas credenciais!' });
+            }
         }
-      }
     };
-    render({navigation}) {
+    render() {
         return (
             <SafeAreaView style={styles.container}>
                 <Image source={require('../../assets/logotipo.png')} />
@@ -81,14 +88,14 @@ export default class HomeLogin extends Component {
                         autoCapitalize="none"
                         autoCorrect={false}
                     />
-                    <Text style={styles.textForgot} onPress={() => navigation.navigate('Recuperar')}>Esqueci minha senha</Text>
-                    {this.state.error.length !== 0 && <ErrorMessage>{this.state.error}</ErrorMessage>}
+                    <Text style={styles.textForgot} onPress={() => this.props.navigation.navigate('Recuperar')}>Esqueci minha senha</Text>
+                    {this.state.error.length !== 0 && <Text style={styles.messageErro}>{this.state.error}</Text>}
                     <View style={styles.areaCenterButton}>
-                        <Pressable style={styles.buttonMain} onPress={() => navigation.navigate('Conta')}>
+                        <Pressable style={styles.buttonMain} onPress={this.handleSignInPress}>
                             <Text style={styles.buttonMainTitle}>Entrar</Text>
                         </Pressable>
-                        
-                        <Pressable style={styles.buttonSecundary} onPress={() => navigation.navigate('Conta')}>
+
+                        <Pressable style={styles.buttonSecundary} onPress={this.handleCreateAccountPress}>
                             <Text style={styles.buttonSecundaryTitle}>Entrar sem cadastro</Text>
                         </Pressable>
                     </View>
@@ -99,7 +106,7 @@ export default class HomeLogin extends Component {
             </SafeAreaView>
         );
     }
-}   
+}
 
 
 const styles = StyleSheet.create({
@@ -107,6 +114,12 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    messageErro: {
+        textAlign: 'center',
+        paddingVertical: 15,
+        backgroundColor: '#198942',
+        color: '#ffffff'
     },
     boxForm: {
         width: '80%',
@@ -146,11 +159,11 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
     },
-        buttonMainTitle: {
-            textAlign: 'center',
-            color: '#efefef',
-            fontSize: 17,
-        },
+    buttonMainTitle: {
+        textAlign: 'center',
+        color: '#efefef',
+        fontSize: 17,
+    },
     buttonSecundary: {
         paddingVertical: 10,
         paddingHorizontal: 10,
@@ -162,11 +175,11 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
     },
-        buttonSecundaryTitle: {
-            textAlign: 'center',
-            color: '#808080',
-            fontSize: 17,
-        },
+    buttonSecundaryTitle: {
+        textAlign: 'center',
+        color: '#808080',
+        fontSize: 17,
+    },
     contentConta: {
         display: 'flex',
         justifyContent: 'center',
@@ -174,15 +187,15 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginVertical: 30,
     },
-        textConta: {
-            color: '#808080',
-            fontSize: 14,
-            paddingHorizontal: 5,
-        },
-        textCadastre: {
-            color: '#1F265B',
-            fontSize: 14,
-            fontWeight: '700',
-            paddingHorizontal: 5,
-        },
+    textConta: {
+        color: '#808080',
+        fontSize: 14,
+        paddingHorizontal: 5,
+    },
+    textCadastre: {
+        color: '#1F265B',
+        fontSize: 14,
+        fontWeight: '700',
+        paddingHorizontal: 5,
+    },
 });
