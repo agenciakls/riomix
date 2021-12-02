@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { StackActions, NavigationActions } from 'react-navigation';
+import { CommonActions, NavigationActions } from '@react-navigation/native';
 
 import api from '../routes/api';
 
@@ -42,27 +42,22 @@ export default class HomeLogin extends Component {
         if (this.state.email.length === 0 || this.state.password.length === 0) {
             this.setState({ error: 'Preencha usuário e senha para continuar!' }, () => false);
         } else {
-            try {
                 const response = await api.post('/login', {
                     username: this.state.email,
                     password: this.state.password,
                 });
                 if (!response.data.status) {
-                    // this.props.navigation.navigate('Conta');
-                    const resetAction = StackActions.reset({
-                        index: 0,
-                        actions: [
-                            NavigationActions.navigate({ routeName: 'Conta', params: { token: response.data.status } }),
+                    const CommonAction = CommonActions.reset({
+                        index: 1,
+                        routes: [
+                            {name: 'Conta', params: { token: '093j2f-2309fj-h54k' }}
                         ],
                     });
-                    this.props.navigation.dispatch(resetAction);
+                    this.props.navigation.dispatch(CommonAction);
                 }
                 else {
                     this.setState({ error: 'Verifique a senha para continuar' });
                 }
-            } catch (_err) {
-                this.setState({ error: 'Houve um problema com o login, verifique suas credenciais!' });
-            }
         }
     };
     render() {

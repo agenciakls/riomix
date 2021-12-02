@@ -16,7 +16,7 @@ const DATA = [
     { id: '58694a0f-3da1-471f-bd96-145571e29d79', title: 'Conhecendo a Família Riomix', },
 ];
 
-import { renderItem } from '../../src/modules/multiMedia';
+import { renderItem } from '../modules/multiMedia';
 
 export default class Media extends React.Component {
     
