@@ -26,17 +26,39 @@ export default class Register extends Component {
     };
 
     state = {
-        email: 'fabiofreitassilvacontato@gmail.com',
-        password: '5s2w9s2v',
+        nome: '',
+        email: '',
+        telefone: '',
+        usuario: '',
+        senha: '',
+        repetesenha: '',
         error: '',
+    };
+
+    handleNomeChange = (nome) => {
+        this.setState({ nome });
     };
 
     handleEmailChange = (email) => {
         this.setState({ email });
     };
+    
 
-    handlePasswordChange = (password) => {
-        this.setState({ password });
+    handleTelefoneChange = (telefone) => {
+        this.setState({ telefone });
+    };
+    
+
+    handleUsernameChange = (username) => {
+        this.setState({ username });
+    };
+
+    handleSenhaChange = (senha) => {
+        this.setState({ senha });
+    };
+
+    handleRepeteSenhaChange = (repetesenha) => {
+        this.setState({ repetesenha });
     };
 
     handleCreateAccountPress = () => {
@@ -48,9 +70,13 @@ export default class Register extends Component {
         if (this.state.email.length === 0 || this.state.password.length === 0) {
             this.setState({ error: 'Preencha usuário e senha para continuar!' }, () => false);
         } else {
-                const response = await api.post('/login', {
-                    username: this.state.email,
-                    password: this.state.password,
+                const response = await api.post('/register', {
+                    nome: this.state.nome,
+                    email: this.state.email,
+                    telefone: this.state.telefone,
+                    usuario: this.state.usuario,
+                    senha: this.state.senha,
+                    repetenha: this.state.repetesenha,
                 });
                 if (!response.data.status) {
                     const CommonAction = CommonActions.reset({
@@ -76,6 +102,10 @@ export default class Register extends Component {
                     <TextInput
                         style={styles.input}
                         placeholder="Nome"
+                        value={this.state.nome}
+                        onChangeText={this.handleNomeChange}
+                        autoCapitalize="none"
+                        autoCorrect={false}
                     />
                     <TextInput
                         style={styles.input}

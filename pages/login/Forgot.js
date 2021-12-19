@@ -25,7 +25,7 @@ class ForgotPassword extends Component {
     };
 
     state = {
-        email: 'fabiofreitassilvacontato@gmail.com',
+        email: '',
         error: '',
     };
 
@@ -39,7 +39,7 @@ class ForgotPassword extends Component {
             this.setState({ error: 'Preencha usuário e senha para continuar!' }, () => false);
         } else {
             const response = await api.post('/recuperar', {
-                username: this.state.email,
+                email: this.state.email,
             });
             if (!response.data.status) {
                 const CommonAction = CommonActions.reset({
