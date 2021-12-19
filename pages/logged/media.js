@@ -3,6 +3,7 @@ import React from 'react'
 import { View, StyleSheet, SafeAreaView, Platform, FlatList } from 'react-native'
 import Header from '../modules/header';
 import {StatusBar} from 'react-native';
+import styles from './style-media';
 
 const DATA = [
     { id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b1', title: 'Conhecendo a Família Riomix', },
@@ -40,22 +41,3 @@ export default class Media extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        display: "flex",
-        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
-    },
-    safearea: {
-        width: "100%",
-        color: 'white'
-    },
-    text: {
-        color: "#161924",
-        fontSize: 20,
-        fontWeight: "500"
-    },
-    BoxContent: {
-        color: 'black'
-    }
-});

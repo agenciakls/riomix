@@ -1,7 +1,8 @@
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, StyleSheet, SafeAreaView, Platform, FlatList, ScrollView, Text, Image, TouchableHighlight } from 'react-native'
 import Header from '../modules/header';
+import api from '../routes/api'
 
 import {StatusBar} from 'react-native';
 
@@ -9,17 +10,49 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-const DATA = [
-    { id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b1', title: 'Parceria entre o Programa Emboço Social e o Conleste', content: 'O ano de 2021 começou proporcionando grandes avanços para o Programa Emboço Social – PES...',},
-    { id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63', title: 'Parceria entre o Programa Emboço Social e o Conleste', content: 'O ano de 2021 começou proporcionando grandes avanços para o Programa Emboço Social – PES...',},
-    { id: '58694a0f-3da1-471f-bd96-145571e29d72', title: 'Parceria entre o Programa Emboço Social e o Conleste', content: 'O ano de 2021 começou proporcionando grandes avanços para o Programa Emboço Social – PES...',},
-    { id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b4', title: 'Parceria entre o Programa Emboço Social e o Conleste', content: 'O ano de 2021 começou proporcionando grandes avanços para o Programa Emboço Social – PES...',},
-    { id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f65', title: 'Parceria entre o Programa Emboço Social e o Conleste', content: 'O ano de 2021 começou proporcionando grandes avanços para o Programa Emboço Social – PES...',},
-    { id: '58694a0f-3da1-471f-bd96-145571e29d76', title: 'Parceria entre o Programa Emboço Social e o Conleste', content: 'O ano de 2021 começou proporcionando grandes avanços para o Programa Emboço Social – PES...',},
-    { id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b7', title: 'Parceria entre o Programa Emboço Social e o Conleste', content: 'O ano de 2021 começou proporcionando grandes avanços para o Programa Emboço Social – PES...',},
-    { id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f68', title: 'Parceria entre o Programa Emboço Social e o Conleste', content: 'O ano de 2021 começou proporcionando grandes avanços para o Programa Emboço Social – PES...',},
-    { id: '58694a0f-3da1-471f-bd96-145571e29d79', title: 'Parceria entre o Programa Emboço Social e o Conleste', content: 'O ano de 2021 começou proporcionando grandes avanços para o Programa Emboço Social – PES...',},
-];
+
+
+function listaNoticias({navigation}) {
+    const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
+
+    useEffect(async () => {
+        const noticias = await api.get('/news');
+        setData(noticias.data);
+    }, []);
+
+    return(
+        <View
+            style={styles.container}
+        >
+            <SafeAreaView
+                style={styles.safearea}
+            >
+                <View style={styles.boxContainer}>
+                    <Text style={styles.titlePage}>Notícias</Text>
+                    <FlatList
+                        data={data}
+                        keyExtractor={item => item.id}
+                        renderItem={({ item }) => (
+                            <TouchableHighlight onPress={() => navigation.navigate('Notícia')}>
+                                <View style={styleNoticiaSingle.item}>
+                                    <View>
+                                        <Image style={styleNoticiaSingle.imgNoticias} source={require('../../assets/example/example-new-list.png')} />
+                                    </View>
+                                    <View style={styleNoticiaSingle.boxText}>
+                                        <Text style={styleNoticiaSingle.title}>{item.title}</Text>
+                                        <Text style={styleNoticiaSingle.content}>{item.content}</Text>
+                                    </View>
+                                </View>
+                            </TouchableHighlight>
+                        )}
+                    />
+                </View>
+                    
+            </SafeAreaView>
+        </View>
+    )
+}
 
 function singleNoticias() {
     return(
@@ -42,40 +75,6 @@ function singleNoticias() {
                         <Image source={require('../../assets/example/example-multimedia.png')} style={styleSingle.imageText} />
                     </View>
                 </ScrollView>
-            </SafeAreaView>
-        </View>
-    )
-}
-
-function listaNoticias({navigation}) {
-    return(
-        <View
-            style={styles.container}
-        >
-            <SafeAreaView
-                style={styles.safearea}
-            >
-                <View style={styles.boxContainer}>
-                    <Text style={styles.titlePage}>Notícias</Text>
-                    <FlatList
-                        data={DATA}
-                        keyExtractor={item => item.id}
-                        renderItem={({ item }) => (
-                            <TouchableHighlight onPress={() => navigation.navigate('Notícia')}>
-                                <View style={styleNoticiaSingle.item}>
-                                    <View>
-                                        <Image style={styleNoticiaSingle.imgNoticias} source={require('../../assets/example/example-new-list.png')} />
-                                    </View>
-                                    <View style={styleNoticiaSingle.boxText}>
-                                        <Text style={styleNoticiaSingle.title}>{item.title}</Text>
-                                        <Text style={styleNoticiaSingle.content}>{item.content}</Text>
-                                    </View>
-                                </View>
-                            </TouchableHighlight>
-                        )}
-                    />
-                </View>
-                    
             </SafeAreaView>
         </View>
     )
