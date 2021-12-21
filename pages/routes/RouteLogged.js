@@ -1,20 +1,28 @@
 import * as React from 'react';
+import { View, SafeAreaView, DrawerItems, TouchableOpacity, Text } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
 import 'react-native-gesture-handler';
 
-import Home from './home';
-import About from './about';
-import Products from './listProducts';
-import Recicler from './recicler';
-import News from './listNews';
-import Media from './media';
-import Contact from './contact';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import Home from '../logged/home';
+import About from '../logged/about';
+import Products from '../logged/listProducts';
+import Recicler from '../logged/recicler';
+import News from '../logged/listNews';
+import Media from '../logged/media';
+import Contact from '../logged/contact';
 
 
 const Drawer = createDrawerNavigator();
 
-export default function MainLogged() {
+const Exit = () => {
+  return(
+    <Text>Teste</Text>
+  );
+};
+const RouteLogged = ({ navigation }) => {
   return(
     <Drawer.Navigator initialRouteName="Home" drawerPosition="right">
       <Drawer.Screen name="Início" component={Home} />
@@ -24,7 +32,9 @@ export default function MainLogged() {
       <Drawer.Screen name="Notícias" component={News} />
       <Drawer.Screen name="Multimídia" component={Media} />
       <Drawer.Screen name="Contato" component={Contact} />
+      <Drawer.Screen name="Sair" component={Exit} />
     </Drawer.Navigator>
   );
 }
 
+export default RouteLogged;

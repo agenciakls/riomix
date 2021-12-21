@@ -5,6 +5,9 @@ import Header from '../modules/header';
 import {StatusBar} from 'react-native';
 import styles from './style-media';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
 const DATA = [
     { id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b1', title: 'Conhecendo a Família Riomix', },
     { id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63', title: 'Conhecendo a Família Riomix', },
@@ -19,25 +22,24 @@ const DATA = [
 
 import { renderItem } from '../modules/multiMedia';
 
-export default class Media extends React.Component {
+const Media = ({navigation}) => {
     
-    render() {
-        return(
-            <View 
-                style={styles.container}
+    return(
+        <View 
+            style={styles.container}
+        >
+            <SafeAreaView
+                style={styles.safearea}
             >
-                <SafeAreaView
-                    style={styles.safearea}
-                >
-                    <Header click={this.props.navigation.openDrawer} />
-                    <FlatList
-                        data={DATA}
-                        renderItem={renderItem}
-                        keyExtractor={item => item.id}
-                    />
-                </SafeAreaView>
-            </View>
-        )
-    }
+                <Header click={navigation.openDrawer} />
+                <FlatList
+                    data={DATA}
+                    renderItem={renderItem}
+                    keyExtractor={item => item.id}
+                />
+            </SafeAreaView>
+        </View>
+    );
 }
 
+export default Media;

@@ -9,11 +9,10 @@ import AuthContext, { AuthProvider } from './auth';
 import HomeLogin from '../login/Home';
 import ForgotPassword from '../login/Forgot';
 import Register from '../login/Register';
-import MainLogged from '../logged/main';
 
 const Stack = createStackNavigator();
 
-export default function Routes() {
+const RouteLogin = () => {
     const {signed} = useContext(AuthContext);
     return (
         <NavigationContainer>
@@ -23,7 +22,6 @@ export default function Routes() {
                         headerShown: false
                     }}>
                     <Stack.Screen name="Login" component={HomeLogin} />
-                    <Stack.Screen name="Conta" component={MainLogged} />
                     <Stack.Screen name="Recuperar" component={ForgotPassword} />
                     <Stack.Screen name="Registrar" component={Register} />
                 </Stack.Navigator>
@@ -31,3 +29,4 @@ export default function Routes() {
         </NavigationContainer>
     );
 }
+export default RouteLogin;

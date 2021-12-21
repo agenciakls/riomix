@@ -429,20 +429,18 @@ function reciclerMain({ navigation }) {
     )
 }
 
-export default class Recicler extends React.Component {
-
-    render() {
-        return (
-            <Stack.Navigator initialRouteName="Recolhimento">
-                <Stack.Screen name="Recolhimento" component={reciclerMain}  />
-                <Stack.Screen name="Recolhimento Individual" component={reciclerIndividual}  />
-                <Stack.Screen name="BSC Geral" component={reciclerGeral}  />
-                <Stack.Screen name="Gráfico" component={reciclerGrafico}  />
-                <Stack.Screen name="PCI" component={reciclerPCI}  />
-            </Stack.Navigator>
-        )
-    }
+const Recicler = () => {
+    return (
+        <Stack.Navigator initialRouteName="Recolhimento">
+            <Stack.Screen name="Recolhimento" component={reciclerMain}  />
+            <Stack.Screen name="Recolhimento Individual" component={reciclerIndividual}  />
+            <Stack.Screen name="BSC Geral" component={reciclerGeral}  />
+            <Stack.Screen name="Gráfico" component={reciclerGrafico}  />
+            <Stack.Screen name="PCI" component={reciclerPCI}  />
+        </Stack.Navigator>
+    );
 }
+export default Recicler;
 
 const styles = StyleSheet.create({
     container: {

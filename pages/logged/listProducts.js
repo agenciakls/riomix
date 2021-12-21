@@ -189,16 +189,15 @@ function HomeProducts({navigation}) {
     );
 }
 
-export default class listProducts extends React.Component {
-    render() {
-        return (
-            <Stack.Navigator initialRouteName="Nossas Linhas">
-                <Stack.Screen name="Nossas Linhas" component={HomeProducts} />
-                <Stack.Screen name="Linha" component={SingleLinha} />
-            </Stack.Navigator>
-        )
-    }
+const listProducts = () => {
+    return (
+        <Stack.Navigator initialRouteName="Nossas Linhas">
+            <Stack.Screen name="Nossas Linhas" component={HomeProducts} />
+            <Stack.Screen name="Linha" component={SingleLinha} />
+        </Stack.Navigator>
+    )
 }
+export default listProducts;
 
 
 const styles = StyleSheet.create({

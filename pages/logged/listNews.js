@@ -80,16 +80,15 @@ function singleNoticias() {
     )
 }
 
-export default class listProducts extends React.Component {
-    render() {
-        return (
-            <Stack.Navigator initialRouteName="Todas as Notícias">
-                <Stack.Screen name="Todas as Notícias" component={listaNoticias} />
-                <Stack.Screen name="Notícia" component={singleNoticias} />
-            </Stack.Navigator>
-        )
-    }
+const listProducts = () => {
+    return (
+        <Stack.Navigator initialRouteName="Todas as Notícias">
+            <Stack.Screen name="Todas as Notícias" component={listaNoticias} />
+            <Stack.Screen name="Notícia" component={singleNoticias} />
+        </Stack.Navigator>
+    );
 }
+export default listProducts;
 
 const styles = StyleSheet.create({
     container: {

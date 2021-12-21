@@ -4,29 +4,28 @@ import { View, StyleSheet, SafeAreaView, Platform, Text, Pressable, Image, Scrol
 import { WebView } from 'react-native-webview';
 import Header from '../modules/header';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
 import {StatusBar} from 'react-native';
 import { faBezierCurve } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './style-about';
 
-export default class About extends React.Component {
-    render() {
-        return(
+const About = ({navigation}) => {
+    return(
         <View
             style={styles.container}
         >
             <SafeAreaView
                 style={styles.safearea}
             >
-                <Header click={this.props.navigation.openDrawer} />
+                <Header click={navigation.openDrawer} />
                 <ScrollView>
                     <View style={styles.boxContainer}>
                         <Text style={styles.titlePage}>QUEM SOMOS</Text>
                         <View style={styles.imgAbout}><Image source={require('../../assets/logo-sobre.png')} /></View>
                         <View>
-
-                        
-
                             <Text style={styles.aboutParagraph}>Ao longo de sua história, a marca solidificou a posição no mercado de fabricação de argamassas industrializadas, atendendo a grandes construtoras e lojas de materiais de construção no Rio de Janeiro e Grande Rio, tendo sempre o compromisso de preservar o meio-ambiente.</Text>
 
                             <Text style={styles.aboutParagraph}>Oferecemos uma vasta linha de argamassas, formuladas para atender as necessidades de cada fase da obra: assentamento, emboço, revestimento, contrapiso, chapisco e argamassas colantes.</Text>
@@ -71,7 +70,6 @@ export default class About extends React.Component {
 
 
         </View>
-        )
-    }
+    )
 }
-
+export default About;
