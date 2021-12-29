@@ -166,7 +166,8 @@ const styles = StyleSheet.create({
           newsText: {
               flex: 1,
               color: '#1F265B',
-              fontWeight: '700'
+              fontWeight: '700',
+              fontSize: 15,
           },
           areaButtonNoticias: {
               flex: 1,

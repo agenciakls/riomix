@@ -6,7 +6,7 @@ import styles from './style-home';
 import AuthContext from '../routes/auth';
 
 const HomeLogin = ({navigation}) => {
-    const { login, loginAnonimous } = useContext(AuthContext);
+    const { login, loginAnonymous } = useContext(AuthContext);
     const [username, handleUsernameChange] = useState('');
     const [password, handlePasswordChange] = useState('');
     const [error, handleErrorChange] = useState('');
@@ -16,10 +16,12 @@ const HomeLogin = ({navigation}) => {
         if (username.length === 0 || password.length === 0) {
             handleErrorChange('Preencha usuário e senha para continuar!');
         } else {
-            const { responseData } = await login(username, password);
-            console.log(responseData);
+            await login(username, password);
         }
     };
+    async function HandleLoginAnonymous() {
+        await loginAnonymous();
+    }
     return (
         <SafeAreaView style={styles.container}>
             <Image source={require('../../assets/logotipo.png')} />
@@ -49,7 +51,7 @@ const HomeLogin = ({navigation}) => {
                         <Text style={styles.buttonMainTitle}>Entrar</Text>
                     </Pressable>
 
-                    <Pressable style={styles.buttonSecundary} onPress={() => navigation.navigate('Conta')}>
+                    <Pressable style={styles.buttonSecundary} onPress={HandleLoginAnonymous}>
                         <Text style={styles.buttonSecundaryTitle}>Entrar sem cadastro</Text>
                     </Pressable>
                 </View>

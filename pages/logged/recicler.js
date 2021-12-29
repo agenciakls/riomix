@@ -1,5 +1,5 @@
 
-import * as React from 'react'
+import React, { useContext, useState, useEffect } from 'react';
 import { View, StyleSheet, Platform, Image, Text, ScrollView, SafeAreaView, Pressable } from 'react-native'
 import Header from '../modules/header';
 import {
@@ -17,17 +17,29 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-const dataGraphic = {
-labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
-datasets: [
-    {
-    data: [20, 45, 28, 80, 99, 43]
-    }
-]
-};
+import AuthContext from '../routes/auth';
 
-function reciclerIndividual() {
+import api from '../routes/api'
 
+
+
+function reciclerIndividual({navigation}) {
+    
+
+    const { user } = useContext(AuthContext);
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        async function loadRecicler() {
+            const recicler = await api.get('/reciclerindividual', {
+                params: {
+                    client_id: user.client_id
+                }
+            });
+            setData(recicler.data);
+        }
+        loadRecicler();
+    }, []);
     return (
         <View
             style={individual.container}
@@ -36,121 +48,47 @@ function reciclerIndividual() {
                 style={individual.safearea}
             >
                 
+                <Header click={navigation.openDrawer} />
                 <ScrollView>
                     <View style={individual.boxContainer}>
-                        <Text style={individual.titlePage}>Recolhimento</Text>
+                        <Text style={individual.titlePage}>Recolhimento Individual</Text>
                         
+                        {data.map((singleData) => {
+                            return(
+                                <View style={individual.boxSingle} key={singleData.id}>
+                                    <Text style={individual.titleSingle}>{singleData.client_name}</Text> 
+                                    <View style={individual.areaData}>
+                                        <Text style={individual.singleData}>Data da Compra: {singleData.date_buy}</Text> 
+                                        <Text style={individual.singleData}>Data da Devolução: {singleData.date_devolution}</Text> 
+                                    </View>
 
+                                    
+                                    <View style={individual.listDados}>
+                                        <View style={individual.singleDados}>
+                                            <Text style={individual.infoDados}>{singleData.vendas}</Text> 
+                                            <Text style={individual.infoDados}>Acumulado de Vendas</Text> 
+                                        </View> 
+                                        <View style={individual.singleDados}>
+                                            <Text style={individual.infoDados}>{singleData.devolucao}</Text> 
+                                            <Text style={individual.infoDados}>Acumulado Retorno</Text> 
+                                        </View> 
+                                        <View style={individual.singleDados}>
+                                            <Text style={individual.infoDados}>{singleData.coeficiente}</Text> 
+                                            <Text style={individual.infoDados}>Coeficiente de Devolução</Text> 
+                                        </View> 
+                                        <View style={individual.singleDados}>
+                                            <Text style={individual.infoDadosVerde}> {singleData.economia} </Text> 
+                                            <Text style={individual.infoDadosVerde}>Economia</Text> 
+                                        </View> 
+                                    </View>
+                                </View>
+                            )
+                        })
+
+                        }
 
                         
-                        <View style={individual.boxSingle}>
-                            <Text style={individual.titleSingle}>MP CONSTRUTORA - Jardim Bougainville</Text> 
-                            <View style={individual.areaData}>
-                                <Text style={individual.singleData}>Data da Compra: 15/05/21</Text> 
-                                <Text style={individual.singleData}>Data da Devolução: 22/05/21</Text> 
-                            </View>
-
                             
-                            <View style={individual.listDados}>
-                                <View style={individual.singleDados}>
-                                    <Text style={individual.infoDados}>20.705</Text> 
-                                    <Text style={individual.infoDados}>Acumulado de Vendas</Text> 
-                                </View> 
-                                <View style={individual.singleDados}>
-                                    <Text style={individual.infoDados}>15.185</Text> 
-                                    <Text style={individual.infoDados}>Acumulado Retorno</Text> 
-                                </View> 
-                                <View style={individual.singleDados}>
-                                    <Text style={individual.infoDados}>0,733</Text> 
-                                    <Text style={individual.infoDados}>Coeficiente de Devolução</Text> 
-                                </View> 
-                                <View style={individual.singleDados}>
-                                    <Text style={individual.infoDados}>3,04</Text> 
-                                    <Text style={individual.infoDados}>Protetômetro</Text> 
-                                </View> 
-                                <View style={individual.singleDados}>
-                                    <Text style={individual.infoDadosVerde}> R$ 754,60 </Text> 
-                                    <Text style={individual.infoDadosVerde}>Economia no Mês</Text> 
-                                </View> 
-                                <View style={individual.singleDados}>
-                                    <Text style={individual.infoDadosVerde}> R$ 10.629,50</Text> 
-                                    <Text style={individual.infoDadosVerde}>Acumulado de Vendas</Text> 
-                                </View> 
-                            </View>
-                        </View>
-
-                        <View style={individual.boxSingle}>
-                            <Text style={individual.titleSingle}>MP CONSTRUTORA - Jardim Bougainville</Text> 
-                            <View style={individual.areaData}>
-                                <Text style={individual.singleData}>Data da Compra: 15/05/21</Text> 
-                                <Text style={individual.singleData}>Data da Devolução: 22/05/21</Text> 
-                            </View>
-
-                            
-                            <View style={individual.listDados}>
-                                <View style={individual.singleDados}>
-                                    <Text style={individual.infoDados}>20.705</Text> 
-                                    <Text style={individual.infoDados}>Acumulado de Vendas</Text> 
-                                </View> 
-                                <View style={individual.singleDados}>
-                                    <Text style={individual.infoDados}>15.185</Text> 
-                                    <Text style={individual.infoDados}>Acumulado Retorno</Text> 
-                                </View> 
-                                <View style={individual.singleDados}>
-                                    <Text style={individual.infoDados}>0,733</Text> 
-                                    <Text style={individual.infoDados}>Coeficiente de Devolução</Text> 
-                                </View> 
-                                <View style={individual.singleDados}>
-                                    <Text style={individual.infoDados}>3,04</Text> 
-                                    <Text style={individual.infoDados}>Protetômetro</Text> 
-                                </View> 
-                                <View style={individual.singleDados}>
-                                    <Text style={individual.infoDadosVerde}> R$ 754,60 </Text> 
-                                    <Text style={individual.infoDadosVerde}>Economia no Mês</Text> 
-                                </View> 
-                                <View style={individual.singleDados}>
-                                    <Text style={individual.infoDadosVerde}> R$ 10.629,50</Text> 
-                                    <Text style={individual.infoDadosVerde}>Acumulado de Vendas</Text> 
-                                </View> 
-                            </View>
-                        </View>
-
-                        <View style={individual.boxSingle}>
-                            <Text style={individual.titleSingle}>MP CONSTRUTORA - Jardim Bougainville</Text> 
-                            <View style={individual.areaData}>
-                                <Text style={individual.singleData}>Data da Compra: 15/05/21</Text> 
-                                <Text style={individual.singleData}>Data da Devolução: 22/05/21</Text> 
-                            </View>
-
-                            
-                            <View style={individual.listDados}>
-                                <View style={individual.singleDados}>
-                                    <Text style={individual.infoDados}>20.705</Text> 
-                                    <Text style={individual.infoDados}>Acumulado de Vendas</Text> 
-                                </View> 
-                                <View style={individual.singleDados}>
-                                    <Text style={individual.infoDados}>15.185</Text> 
-                                    <Text style={individual.infoDados}>Acumulado Retorno</Text> 
-                                </View> 
-                                <View style={individual.singleDados}>
-                                    <Text style={individual.infoDados}>0,733</Text> 
-                                    <Text style={individual.infoDados}>Coeficiente de Devolução</Text> 
-                                </View> 
-                                <View style={individual.singleDados}>
-                                    <Text style={individual.infoDados}>3,04</Text> 
-                                    <Text style={individual.infoDados}>Protetômetro</Text> 
-                                </View> 
-                                <View style={individual.singleDados}>
-                                    <Text style={individual.infoDadosVerde}> R$ 754,60 </Text> 
-                                    <Text style={individual.infoDadosVerde}>Economia no Mês</Text> 
-                                </View> 
-                                <View style={individual.singleDados}>
-                                    <Text style={individual.infoDadosVerde}> R$ 10.629,50</Text> 
-                                    <Text style={individual.infoDadosVerde}>Acumulado de Vendas</Text> 
-                                </View> 
-                            </View>
-                        </View>
-
 
 
                         
@@ -161,8 +99,24 @@ function reciclerIndividual() {
     )
 
 }
-function reciclerGeral() {
+function reciclerGeral({navigation}) {
 
+    
+
+    const { user } = useContext(AuthContext);
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        async function loadRecicler() {
+            const recicler = await api.get('/reciclergeral', {
+                params: {
+                    client_id: user.client_id
+                }
+            });
+            setData(recicler.data);
+        }
+        loadRecicler();
+    }, []);
     return (
         <View
             style={styles.container}
@@ -170,76 +124,77 @@ function reciclerGeral() {
             <SafeAreaView
                 style={styles.safearea}
             >
-                
+               
+               <Header click={navigation.openDrawer} />
                 <ScrollView>
                     <View style={styles.boxContainer}>
                         <Text style={styles.titlePage}>Recolhimento</Text>
-                        
+                            <View>
+                                <View style={geral.boxSingle}>
+                                    <View style={geral.InfoBoxArea}>
+                                        <Text style={geral.titleSingle}>Julho de 2021</Text> 
+                                        <View style={geral.areaData}>
+                                            <Text style={geral.singleData}>{data.devolucoes}</Text> 
+                                            <Text style={geral.singleData}>Devoluções</Text> 
+                                        </View>
 
-                        <View style={geral.boxSingle}>
-                            <View style={geral.InfoBoxArea}>
-                                <Text style={geral.titleSingle}>Julho de 2021</Text> 
-                                <View style={geral.areaData}>
-                                    <Text style={geral.singleData}>300</Text> 
-                                    <Text style={geral.singleData}>Devoluções</Text> 
+                                        
+                                        <View style={geral.listDados}>
+                                            <View style={geral.singleDados}>
+                                                <Text style={geral.infoDados}>{data.devolucoes}</Text> 
+                                                <Text style={geral.infoDados}>desde Abril de 2017</Text> 
+                                            </View> 
+                                        </View>
+                                    </View>
+                                    <View style={geral.infoBoxImg}>
+                                        <Image source={require('../../assets/icons/riomix-cinza.png')} />
+                                    </View>
                                 </View>
 
                                 
-                                <View style={geral.listDados}>
-                                    <View style={geral.singleDados}>
-                                        <Text style={geral.infoDados}>156115</Text> 
-                                        <Text style={geral.infoDados}>desde Abril de 2017</Text> 
-                                    </View> 
-                                </View>
-                            </View>
-                            <View style={geral.infoBoxImg}>
-                                <Image source={require('../../assets/icons/riomix-cinza.png')} />
-                            </View>
-                        </View>
+                                <View style={geral.boxSingle}>
+                                    <View style={geral.InfoBoxArea}>
+                                        <Text style={geral.titleSingle}>Julho de 2021</Text> 
+                                        <View style={geral.areaData}>
+                                            <Text style={geral.singleData}>{data.economia}</Text> 
+                                            <Text style={geral.singleData}>Economia no canteiro</Text> 
+                                        </View>
 
-                        
-                        <View style={geral.boxSingle}>
-                            <View style={geral.InfoBoxArea}>
-                                <Text style={geral.titleSingle}>Julho de 2021</Text> 
-                                <View style={geral.areaData}>
-                                    <Text style={geral.singleData}>300</Text> 
-                                    <Text style={geral.singleData}>Devoluções</Text> 
-                                </View>
-
-                                
-                                <View style={geral.listDados}>
-                                    <View style={geral.singleDados}>
-                                        <Text style={geral.infoDados}>156115</Text> 
-                                        <Text style={geral.infoDados}>desde Abril de 2017</Text> 
-                                    </View> 
-                                </View>
-                            </View>
-                            <View style={geral.infoBoxImg}>
-                                <Image source={require('../../assets/icons/carteira-cinza.png')} />
-                            </View>
-                        </View>
-
-                        
-                        <View style={geral.boxSingle}>
-                            <View style={geral.InfoBoxArea}>
-                                <Text style={geral.titleSingle}>Julho de 2021</Text> 
-                                <View style={geral.areaData}>
-                                    <Text style={geral.singleData}>300</Text> 
-                                    <Text style={geral.singleData}>Devoluções</Text> 
+                                        
+                                        <View style={geral.listDados}>
+                                            <View style={geral.singleDados}>
+                                                <Text style={geral.infoDados}>{data.economia}</Text> 
+                                                <Text style={geral.infoDados}>desde Abril de 2017</Text> 
+                                            </View> 
+                                        </View>
+                                    </View>
+                                    <View style={geral.infoBoxImg}>
+                                        <Image source={require('../../assets/icons/carteira-cinza.png')} />
+                                    </View>
                                 </View>
 
                                 
-                                <View style={geral.listDados}>
-                                    <View style={geral.singleDados}>
-                                        <Text style={geral.infoDados}>156115</Text> 
-                                        <Text style={geral.infoDados}>desde Abril de 2017</Text> 
-                                    </View> 
+                                <View style={geral.boxSingle}>
+                                    <View style={geral.InfoBoxArea}>
+                                        <Text style={geral.titleSingle}>Julho de 2021</Text> 
+                                        <View style={geral.areaData}>
+                                            <Text style={geral.singleData}>{data.familias}</Text> 
+                                            <Text style={geral.singleData}>Famílias Beneficiadas</Text> 
+                                        </View>
+
+                                        
+                                        <View style={geral.listDados}>
+                                            <View style={geral.singleDados}>
+                                                <Text style={geral.infoDados}>{data.familias}</Text> 
+                                                <Text style={geral.infoDados}>desde Abril de 2017</Text> 
+                                            </View> 
+                                        </View>
+                                    </View>
+                                    <View style={geral.infoBoxImg}>
+                                        <Image source={require('../../assets/icons/home-cinza.png')} />
+                                    </View>
                                 </View>
                             </View>
-                            <View style={geral.infoBoxImg}>
-                                <Image source={require('../../assets/icons/home-cinza.png')} />
-                            </View>
-                        </View>
                     </View>
                 </ScrollView>
             </SafeAreaView>
@@ -247,8 +202,44 @@ function reciclerGeral() {
     )
 
 }
-function reciclerGrafico() {
+function reciclerGrafico({navigation}) {
+    const dataGraphic = {
+        labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
+        datasets: [
+            {
+            data: [0, 0, 0, 0, 0, 0]
+            }
+        ]
+    };
 
+    const { user } = useContext(AuthContext);
+    const [graphic, setGraphic] = useState(dataGraphic);
+    const [data, setData] = useState({});
+
+    useEffect(() => {
+        async function loadRecicler() {
+            const recicler = await api.get('/reciclergrafico', {
+                params: {
+                    client_id: user.client_id
+                }
+            });
+            
+            const graphicCurrent = {
+                labels: recicler.data.meses,
+                datasets: [
+                    {
+                    data: recicler.data.recolhimento
+                    }
+                ]
+            };
+            if (recicler.data.meses) {
+
+                setGraphic(graphicCurrent);
+                setData(recicler.data);
+            }
+        }
+        loadRecicler();
+    }, []);
     return (
         <View
             style={grafico.container}
@@ -257,19 +248,20 @@ function reciclerGrafico() {
                 style={grafico.safearea}
             >
                 
+                <Header click={navigation.openDrawer} />
                 <ScrollView>
                     <View style={grafico.boxContainer}>
-                        <Text style={grafico.titlePage}>Recolhimento</Text>
-                        <BarChart
+                        <Text style={grafico.titlePage}>Gráfico de Recolhimento</Text>
+                        {/* <BarChart
                         style={{
                         marginVertical: 8,
                         borderRadius: 5,
                         }}
-                        data={dataGraphic}
+                        data={data}
                         width={Dimensions.get("window").width - 30}
                         height={220}
-                        yAxisLabel="R$ "
-                        yAxisSuffix="k"
+                        yAxisLabel=""
+                        yAxisSuffix=""
                         chartConfig={{
                             backgroundColor: "#1F265B",
                             backgroundGradientFrom: "#1F265B",
@@ -286,15 +278,15 @@ function reciclerGrafico() {
                                 stroke: "#198942"
                             }
                         }}
-                        />
+                        /> */}
                         
 
-                        {/* <LineChart
-                            data={dataGraphic}
+                        <LineChart
+                            data={graphic}
                             width={Dimensions.get("window").width - 30} // from react-native
                             height={220}
-                            yAxisLabel="R$ "
-                            yAxisSuffix="k"
+                            yAxisLabel=""
+                            yAxisSuffix=""
                             yAxisInterval={1} // optional, defaults to 1
                             chartConfig={{
                                 backgroundColor: "#1F265B",
@@ -318,15 +310,15 @@ function reciclerGrafico() {
                             borderRadius: 5,
                             }}
                         />
-                        */}
+                        
                         <View>
                             <View style={grafico.areaDados}>                               
                                 <View style={grafico.viewImage}>
                                     <Image style={grafico.imagesIcones} source={require('../../assets/icons/geral-gray.png')} />
                                 </View>
                                 <View>
-                                    <Text style={grafico.titleData}>150 casas</Text>
-                                    <Text style={grafico.subtitleData}>Casas Protegidas</Text>
+                                    <Text style={grafico.titleData}>{(data.devolucoes) ? data.devolucoes : 0}</Text>
+                                    <Text style={grafico.subtitleData}>Embalagens Recolhidas</Text>
                                 </View>
                             </View>
                             <View style={grafico.areaDados}>                           
@@ -334,8 +326,8 @@ function reciclerGrafico() {
                                     <Image style={grafico.imagesIcones} source={require('../../assets/icons/home-gray.png')} />
                                 </View>
                                 <View>
-                                    <Text style={grafico.titleData}>150 casas</Text>
-                                    <Text style={grafico.subtitleData}>Casas Protegidas</Text>
+                                    <Text style={grafico.titleData}>{(data.economia) ? data.economia : 0}</Text>
+                                    <Text style={grafico.subtitleData}>Economia</Text>
                                 </View>
                             </View>
                             <View style={grafico.areaDados}>                           
@@ -343,7 +335,7 @@ function reciclerGrafico() {
                                     <Image style={grafico.imagesIcones} source={require('../../assets/icons/carteira-gray.png')} />
                                 </View>
                                 <View>
-                                    <Text style={grafico.titleData}>150 casas</Text>
+                                    <Text style={grafico.titleData}>{(data.familias) ? data.familias : 0} casas</Text>
                                     <Text style={grafico.subtitleData}>Casas Protegidas</Text>
                                 </View>
                             </View>
@@ -355,7 +347,7 @@ function reciclerGrafico() {
     )
 
 }
-function reciclerPCI() {
+function reciclerPCI({navigation}) {
 
     return (
         <View
@@ -365,6 +357,7 @@ function reciclerPCI() {
                 style={pci.safearea}
             >
                 
+                <Header click={navigation.openDrawer} />
                 <ScrollView>
                     <View style={pci.boxContainer}>
                         <Text style={pci.titlePage}>Recolhimento</Text>
@@ -375,7 +368,7 @@ function reciclerPCI() {
                             <Text style={pci.infoContact}>INSCREVA-SE AGORA!</Text>
                         </View>             
                         <View style={pci.areaCenterButton}>
-                            <Pressable style={pci.buttonMain}>
+                            <Pressable style={pci.buttonMain} onPress={() => navigation.navigate('Contato')}>
                                 <Text style={pci.buttonMainTitle}>Envia Mensagem</Text>
                             </Pressable>
                         </View>
@@ -386,6 +379,9 @@ function reciclerPCI() {
     )
 }
 function reciclerMain({ navigation }) {
+    
+    const { user } = useContext(AuthContext);
+
     return (
         <View
             style={styles.container}
@@ -393,6 +389,8 @@ function reciclerMain({ navigation }) {
             <SafeAreaView
                 style={styles.safearea}
             >
+                
+                <Header click={navigation.openDrawer} />
                 
                 <ScrollView>
                     <View style={styles.boxContainer}>
@@ -431,7 +429,11 @@ function reciclerMain({ navigation }) {
 
 const Recicler = () => {
     return (
-        <Stack.Navigator initialRouteName="Recolhimento">
+        <Stack.Navigator initialRouteName="Recolhimento"
+        screenOptions={{
+          headerShown: false
+        }}
+      >
             <Stack.Screen name="Recolhimento" component={reciclerMain}  />
             <Stack.Screen name="Recolhimento Individual" component={reciclerIndividual}  />
             <Stack.Screen name="BSC Geral" component={reciclerGeral}  />
@@ -496,7 +498,6 @@ const styles = StyleSheet.create({
 
 });
 
-
 const individual = StyleSheet.create({
     container: {
         flex: 1,
@@ -554,7 +555,6 @@ const individual = StyleSheet.create({
             },
 
 });
-
 
 const geral = StyleSheet.create({
     container: {
@@ -695,8 +695,6 @@ const pci = StyleSheet.create({
         color: '#808080',
     },
 });
-
-
 
 const grafico = StyleSheet.create({
     container: {

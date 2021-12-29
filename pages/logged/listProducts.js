@@ -10,7 +10,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-function SingleLinha() {
+function LinhaTradicional({navigation}) {
     return (
         <View
             style={styles.container}
@@ -18,6 +18,310 @@ function SingleLinha() {
             <SafeAreaView
                 style={styles.safearea}
             >
+                <Header click={navigation.openDrawer} />
+                <ScrollView>
+                    <View style={styles.boxContainer}>
+                        <Text style={styles.titlePage}>LINHA TRADICIONAL</Text>
+
+                        <View style={styles.singleBoxLinha}>
+                            <View style={styles.imgProduct}><Image source={require('../../assets/files/contrapiso.png')} /></View>
+                            <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
+                            <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
+                            <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
+                            <Text style={styles.productParagraph}>Embalagem: 50 kg.</Text>
+                             
+                            <View style={styles.areaButtons}>
+                                <Pressable style={styles.buttonSingle}>
+                                    <Text style={styles.buttonSingleTitle}>Quero saber mais</Text>
+                                </Pressable>    
+                                
+                                <Pressable style={styles.buttonSingleSecondary}>
+                                    <Text style={styles.buttonSingleSecondaryTitle}>Assistir vídeo</Text>
+                                </Pressable>
+                            </View>
+                            <View style={styles.hrLinha} />
+                        </View>
+
+                        
+
+                        <View style={styles.singleBoxLinha}>
+                            <View style={styles.imgProduct}><Image source={require('../../assets/files/contrapiso.png')} /></View>
+                            <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
+                            <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
+                            <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
+                            <Text style={styles.productParagraph}>Embalagem: 50 kg.</Text>
+                            
+                            <View style={styles.areaButtons}>
+                                <Pressable style={styles.buttonSingle}>
+                                    <Text style={styles.buttonSingleTitle}>Quero saber mais</Text>
+                                </Pressable>    
+                                
+                                <Pressable style={styles.buttonSingleSecondary}>
+                                    <Text style={styles.buttonSingleSecondaryTitle}>Assistir vídeo</Text>
+                                </Pressable>
+                            </View>
+                            <View style={styles.hrLinha} />
+                        </View>
+
+                        
+
+                        <View style={styles.singleBoxLinha}>
+                            <View style={styles.imgProduct}><Image source={require('../../assets/files/contrapiso.png')} /></View>
+                            <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
+                            <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
+                            <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
+                            <Text style={styles.productParagraph}>Embalagem: 50 kg.</Text>
+                            
+                            <View style={styles.areaButtons}>
+                                <Pressable style={styles.buttonSingle}>
+                                    <Text style={styles.buttonSingleTitle}>Quero saber mais</Text>
+                                </Pressable>    
+                                
+                                <Pressable style={styles.buttonSingleSecondary}>
+                                    <Text style={styles.buttonSingleSecondaryTitle}>Assistir vídeo</Text>
+                                </Pressable>
+                            </View>
+                            <View style={styles.hrLinha} />
+                        </View>
+
+                        
+
+                        <View style={styles.singleBoxLinha}>
+                            <View style={styles.imgProduct}><Image source={require('../../assets/files/contrapiso.png')} /></View>
+                            <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
+                            <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
+                            <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
+                            <Text style={styles.productParagraph}>Embalagem: 50 kg.</Text>
+                            
+                            <View style={styles.areaButtons}>
+                                <Pressable style={styles.buttonSingle}>
+                                    <Text style={styles.buttonSingleTitle}>Quero saber mais</Text>
+                                </Pressable>    
+                                
+                                <Pressable style={styles.buttonSingleSecondary}>
+                                    <Text style={styles.buttonSingleSecondaryTitle}>Assistir vídeo</Text>
+                                </Pressable>
+                            </View>
+                            <View style={styles.hrLinha} />
+                        </View>
+
+                    </View>
+                </ScrollView>
+            </SafeAreaView>
+        </View>
+    );
+}
+function LinhaClassica({navigation}) {
+    return (
+        <View
+            style={styles.container}
+        >
+            <SafeAreaView
+                style={styles.safearea}
+            >
+                <Header click={navigation.openDrawer} />
+                <ScrollView>
+                    <View style={styles.boxContainer}>
+                        <Text style={styles.titlePage}>LINHA TRADICIONAL</Text>
+
+                        <View style={styles.singleBoxLinha}>
+                            <View style={styles.imgProduct}><Image source={require('../../assets/files/contrapiso.png')} /></View>
+                            <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
+                            <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
+                            <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
+                            <Text style={styles.productParagraph}>Embalagem: 50 kg.</Text>
+                             
+                            <View style={styles.areaButtons}>
+                                <Pressable style={styles.buttonSingle}>
+                                    <Text style={styles.buttonSingleTitle}>Quero saber mais</Text>
+                                </Pressable>    
+                                
+                                <Pressable style={styles.buttonSingleSecondary}>
+                                    <Text style={styles.buttonSingleSecondaryTitle}>Assistir vídeo</Text>
+                                </Pressable>
+                            </View>
+                            <View style={styles.hrLinha} />
+                        </View>
+
+                        
+
+                        <View style={styles.singleBoxLinha}>
+                            <View style={styles.imgProduct}><Image source={require('../../assets/files/contrapiso.png')} /></View>
+                            <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
+                            <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
+                            <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
+                            <Text style={styles.productParagraph}>Embalagem: 50 kg.</Text>
+                            
+                            <View style={styles.areaButtons}>
+                                <Pressable style={styles.buttonSingle}>
+                                    <Text style={styles.buttonSingleTitle}>Quero saber mais</Text>
+                                </Pressable>    
+                                
+                                <Pressable style={styles.buttonSingleSecondary}>
+                                    <Text style={styles.buttonSingleSecondaryTitle}>Assistir vídeo</Text>
+                                </Pressable>
+                            </View>
+                            <View style={styles.hrLinha} />
+                        </View>
+
+                        
+
+                        <View style={styles.singleBoxLinha}>
+                            <View style={styles.imgProduct}><Image source={require('../../assets/files/contrapiso.png')} /></View>
+                            <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
+                            <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
+                            <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
+                            <Text style={styles.productParagraph}>Embalagem: 50 kg.</Text>
+                            
+                            <View style={styles.areaButtons}>
+                                <Pressable style={styles.buttonSingle}>
+                                    <Text style={styles.buttonSingleTitle}>Quero saber mais</Text>
+                                </Pressable>    
+                                
+                                <Pressable style={styles.buttonSingleSecondary}>
+                                    <Text style={styles.buttonSingleSecondaryTitle}>Assistir vídeo</Text>
+                                </Pressable>
+                            </View>
+                            <View style={styles.hrLinha} />
+                        </View>
+
+                        
+
+                        <View style={styles.singleBoxLinha}>
+                            <View style={styles.imgProduct}><Image source={require('../../assets/files/contrapiso.png')} /></View>
+                            <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
+                            <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
+                            <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
+                            <Text style={styles.productParagraph}>Embalagem: 50 kg.</Text>
+                            
+                            <View style={styles.areaButtons}>
+                                <Pressable style={styles.buttonSingle}>
+                                    <Text style={styles.buttonSingleTitle}>Quero saber mais</Text>
+                                </Pressable>    
+                                
+                                <Pressable style={styles.buttonSingleSecondary}>
+                                    <Text style={styles.buttonSingleSecondaryTitle}>Assistir vídeo</Text>
+                                </Pressable>
+                            </View>
+                            <View style={styles.hrLinha} />
+                        </View>
+
+                    </View>
+                </ScrollView>
+            </SafeAreaView>
+        </View>
+    );
+}
+function LinhaColante({navigation}) {
+    return (
+        <View
+            style={styles.container}
+        >
+            <SafeAreaView
+                style={styles.safearea}
+            >
+                <Header click={navigation.openDrawer} />
+                <ScrollView>
+                    <View style={styles.boxContainer}>
+                        <Text style={styles.titlePage}>LINHA TRADICIONAL</Text>
+
+                        <View style={styles.singleBoxLinha}>
+                            <View style={styles.imgProduct}><Image source={require('../../assets/files/contrapiso.png')} /></View>
+                            <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
+                            <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
+                            <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
+                            <Text style={styles.productParagraph}>Embalagem: 50 kg.</Text>
+                             
+                            <View style={styles.areaButtons}>
+                                <Pressable style={styles.buttonSingle}>
+                                    <Text style={styles.buttonSingleTitle}>Quero saber mais</Text>
+                                </Pressable>    
+                                
+                                <Pressable style={styles.buttonSingleSecondary}>
+                                    <Text style={styles.buttonSingleSecondaryTitle}>Assistir vídeo</Text>
+                                </Pressable>
+                            </View>
+                            <View style={styles.hrLinha} />
+                        </View>
+
+                        
+
+                        <View style={styles.singleBoxLinha}>
+                            <View style={styles.imgProduct}><Image source={require('../../assets/files/contrapiso.png')} /></View>
+                            <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
+                            <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
+                            <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
+                            <Text style={styles.productParagraph}>Embalagem: 50 kg.</Text>
+                            
+                            <View style={styles.areaButtons}>
+                                <Pressable style={styles.buttonSingle}>
+                                    <Text style={styles.buttonSingleTitle}>Quero saber mais</Text>
+                                </Pressable>    
+                                
+                                <Pressable style={styles.buttonSingleSecondary}>
+                                    <Text style={styles.buttonSingleSecondaryTitle}>Assistir vídeo</Text>
+                                </Pressable>
+                            </View>
+                            <View style={styles.hrLinha} />
+                        </View>
+
+                        
+
+                        <View style={styles.singleBoxLinha}>
+                            <View style={styles.imgProduct}><Image source={require('../../assets/files/contrapiso.png')} /></View>
+                            <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
+                            <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
+                            <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
+                            <Text style={styles.productParagraph}>Embalagem: 50 kg.</Text>
+                            
+                            <View style={styles.areaButtons}>
+                                <Pressable style={styles.buttonSingle}>
+                                    <Text style={styles.buttonSingleTitle}>Quero saber mais</Text>
+                                </Pressable>    
+                                
+                                <Pressable style={styles.buttonSingleSecondary}>
+                                    <Text style={styles.buttonSingleSecondaryTitle}>Assistir vídeo</Text>
+                                </Pressable>
+                            </View>
+                            <View style={styles.hrLinha} />
+                        </View>
+
+                        
+
+                        <View style={styles.singleBoxLinha}>
+                            <View style={styles.imgProduct}><Image source={require('../../assets/files/contrapiso.png')} /></View>
+                            <Text style={styles.titleBox}>LINHA TRADICIONAL</Text>
+                            <Text style={styles.productParagraph}>Produto indicado para revestimento de paredes externas e tetos, sendo base para tintas, pastilhas, cerâmicas e laminados. Pode ser utilizado para assentamento de tijolos e blocos em geral, para contrapiso e reparos.</Text>
+                            <Text style={styles.productParagraph}>Emboça uma área de, no mínimo, 2,7 m² para uma espessura de 1 cm e assenta, no mínimo, 45 blocos cerâmicos (20x20x10 cm) para uma espessura de 1,5 cm e com emboço lateral.</Text>
+                            <Text style={styles.productParagraph}>Embalagem: 50 kg.</Text>
+                            
+                            <View style={styles.areaButtons}>
+                                <Pressable style={styles.buttonSingle}>
+                                    <Text style={styles.buttonSingleTitle}>Quero saber mais</Text>
+                                </Pressable>    
+                                
+                                <Pressable style={styles.buttonSingleSecondary}>
+                                    <Text style={styles.buttonSingleSecondaryTitle}>Assistir vídeo</Text>
+                                </Pressable>
+                            </View>
+                            <View style={styles.hrLinha} />
+                        </View>
+
+                    </View>
+                </ScrollView>
+            </SafeAreaView>
+        </View>
+    );
+}
+function LinhaChapisco({navigation}) {
+    return (
+        <View
+            style={styles.container}
+        >
+            <SafeAreaView
+                style={styles.safearea}
+            >
+                <Header click={navigation.openDrawer} />
                 <ScrollView>
                     <View style={styles.boxContainer}>
                         <Text style={styles.titlePage}>LINHA TRADICIONAL</Text>
@@ -120,18 +424,19 @@ function HomeProducts({navigation}) {
             <SafeAreaView
                 style={styles.safearea}
             >
+                <Header click={navigation.openDrawer} />
                 <ScrollView>
                     <View style={styles.boxContainer}>
                         <Text style={styles.titlePage}>Nossas linhas</Text>
 
                         <View style={styles.containerLinhas}>
                             <View style={styles.linhasBoxImage}>
-                                <Image style={styles.linhasImage} source={require('../../assets/img/linha-tradicional.png')} />
+                                <Image style={styles.linhasImage} source={require('../../assets/img/linha-classica.png')} />
                             </View>
                             <View style={styles.linhasBox}>
-                                <Text style={styles.linhasTitle}>Nossas Linhas</Text>
-                                <Text style={styles.linhasText}>A Riomix tem a argamassa perfeita para a necessidade de cada fase da sua obra. </Text>
-                                <Pressable style={styles.buttonProduct} onPress={() => navigation.navigate('Linha')}>
+                                <Text style={styles.linhasTitle}>LINHA CLÁSSICA</Text>
+                                <Text style={styles.linhasText}>Nossos primeiros lançamentos, de qualidade que o mercado conhece e aprova há anos.</Text>
+                                <Pressable style={styles.buttonProduct} onPress={() => navigation.navigate('Linha Clássica')}>
                                     <Text style={styles.buttonProductTitle}>VER MAIS</Text>
                                 </Pressable>
 
@@ -143,9 +448,9 @@ function HomeProducts({navigation}) {
                                 <Image style={styles.linhasImage} source={require('../../assets/img/linha-tradicional.png')} />
                             </View>
                             <View style={styles.linhasBox}>
-                                <Text style={styles.linhasTitle}>Nossas Linhas</Text>
-                                <Text style={styles.linhasText}>A Riomix tem a argamassa perfeita para a necessidade de cada fase da sua obra. </Text>
-                                <Pressable style={styles.buttonProduct}>
+                                <Text style={styles.linhasTitle}>LINHA TRADICIONAL </Text>
+                                <Text style={styles.linhasText}>A principal família da Riomix. Todo nosso know-how e excelência você encontra aqui.</Text>
+                                <Pressable style={styles.buttonProduct} onPress={() => navigation.navigate('Linha Tradicional')}>
                                     <Text style={styles.buttonProductTitle}>VER MAIS</Text>
                                 </Pressable>
 
@@ -154,12 +459,12 @@ function HomeProducts({navigation}) {
 
                         <View style={styles.containerLinhas}>
                             <View style={styles.linhasBoxImage}>
-                                <Image style={styles.linhasImage} source={require('../../assets/img/linha-tradicional.png')} />
+                                <Image style={styles.linhasImage} source={require('../../assets/img/linha-colante.png')} />
                             </View>
                             <View style={styles.linhasBox}>
-                                <Text style={styles.linhasTitle}>Nossas Linhas</Text>
-                                <Text style={styles.linhasText}>A Riomix tem a argamassa perfeita para a necessidade de cada fase da sua obra. </Text>
-                                <Pressable style={styles.buttonProduct}>
+                                <Text style={styles.linhasTitle}>LINHA COLANTE </Text>
+                                <Text style={styles.linhasText}>Assentamentos de revestimenos de máxima eficiência: escolha entre o Colante Interno ou Flexível.</Text>
+                                <Pressable style={styles.buttonProduct} onPress={() => navigation.navigate('Linha Clássica')}>
                                     <Text style={styles.buttonProductTitle}>VER MAIS</Text>
                                 </Pressable>
 
@@ -168,12 +473,12 @@ function HomeProducts({navigation}) {
 
                         <View style={styles.containerLinhas}>
                             <View style={styles.linhasBoxImage}>
-                                <Image style={styles.linhasImage} source={require('../../assets/img/linha-tradicional.png')} />
+                                <Image style={styles.linhasImage} source={require('../../assets/img/linha-chapisco.png')} />
                             </View>
                             <View style={styles.linhasBox}>
-                                <Text style={styles.linhasTitle}>Nossas Linhas</Text>
-                                <Text style={styles.linhasText}>A Riomix tem a argamassa perfeita para a necessidade de cada fase da sua obra. </Text>
-                                <Pressable style={styles.buttonProduct}>
+                                <Text style={styles.linhasTitle}>LINHA CHAPISCO</Text>
+                                <Text style={styles.linhasText}>Chapiscos com a qualidade Riomix: de Alvenaria, para áreas externas, ou de Estruturas de Concreto</Text>
+                                <Pressable style={styles.buttonProduct} onPress={() => navigation.navigate('Linha Clássica')}>
                                     <Text style={styles.buttonProductTitle}>VER MAIS</Text>
                                 </Pressable>
 
@@ -191,9 +496,16 @@ function HomeProducts({navigation}) {
 
 const listProducts = () => {
     return (
-        <Stack.Navigator initialRouteName="Nossas Linhas">
+        <Stack.Navigator initialRouteName="Nossas Linhas"
+        screenOptions={{
+          headerShown: false
+        }}
+      >
             <Stack.Screen name="Nossas Linhas" component={HomeProducts} />
-            <Stack.Screen name="Linha" component={SingleLinha} />
+            <Stack.Screen name="Linha Tradicional" component={LinhaTradicional} />
+            <Stack.Screen name="Linha Clássica" component={LinhaClassica} />
+            <Stack.Screen name="Linha Colante" component={LinhaColante} />
+            <Stack.Screen name="Linha Chapisco" component={LinhaChapisco} />
         </Stack.Navigator>
     )
 }

@@ -10,8 +10,8 @@ const styles = StyleSheet.create({
   messageErro: {
       textAlign: 'center',
       paddingVertical: 15,
-      backgroundColor: '#198942',
-      color: '#ffffff'
+      backgroundColor: '#F9D71C',
+      color: '#565656'
   },
   boxForm: {
       width: '80%',

@@ -7,6 +7,10 @@
     "web": "expo start --web",
     "eject": "expo eject"
   },
+  "android": {
+    "package": "com.yxe.riomix",
+    "versionCode": 1
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",

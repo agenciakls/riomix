@@ -1,12 +1,18 @@
 import React, { useContext } from 'react';
-import RouteLogin from './pages/routes/RouteLogin'
-import RouteLogged from './pages/routes/RouteLogged'
+import { NavigationContainer } from '@react-navigation/native';
 
-import AuthProvider from './pages/routes/auth';
+import {AuthProvider} from './pages/routes/auth';
+import Routes from './pages/routes/Routes';
 
 const App = () => {
-  const { signed } = useContext(AuthProvider);
-  return (signed) ? <RouteLogged />: <RouteLogin />;
+    return (
+        <NavigationContainer>
+            <AuthProvider>
+                <Routes />
+            </AuthProvider>
+        </NavigationContainer>
+    );
+
 };
 
 export default App;

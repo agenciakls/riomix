@@ -1,8 +1,9 @@
 
-import React, { useEffect, useState } from 'react'
-import { View, StyleSheet, SafeAreaView, Platform, FlatList, ScrollView, Text, Image, TouchableHighlight } from 'react-native'
+import React, { useEffect, useState, useContext } from 'react'
+import { View, StyleSheet, SafeAreaView, FlatList, ScrollView, Text, Image, TouchableHighlight } from 'react-native'
 import Header from '../modules/header';
 import api from '../routes/api'
+import AuthContext from '../routes/auth';
 
 import {StatusBar} from 'react-native';
 
@@ -10,17 +11,16 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-
-
-function listaNoticias({navigation}) {
-    const [isLoading, setLoading] = useState(true);
+export function listaNoticias({navigation, route}) {
     const [data, setData] = useState([]);
 
-    useEffect(async () => {
-        const noticias = await api.get('/news');
-        setData(noticias.data);
+    useEffect(() => {
+        async function loadNews() {
+            const noticias = await api.get('/news');
+            setData(noticias.data);
+        }
+        loadNews();
     }, []);
-
     return(
         <View
             style={styles.container}
@@ -28,20 +28,21 @@ function listaNoticias({navigation}) {
             <SafeAreaView
                 style={styles.safearea}
             >
+                <Header click={navigation.openDrawer} />
                 <View style={styles.boxContainer}>
                     <Text style={styles.titlePage}>Notícias</Text>
                     <FlatList
                         data={data}
                         keyExtractor={item => item.id}
                         renderItem={({ item }) => (
-                            <TouchableHighlight onPress={() => navigation.navigate('Notícia')}>
+                            <TouchableHighlight onPress={() => navigation.navigate('Notícia', item)}>
                                 <View style={styleNoticiaSingle.item}>
                                     <View>
                                         <Image style={styleNoticiaSingle.imgNoticias} source={require('../../assets/example/example-new-list.png')} />
                                     </View>
                                     <View style={styleNoticiaSingle.boxText}>
                                         <Text style={styleNoticiaSingle.title}>{item.title}</Text>
-                                        <Text style={styleNoticiaSingle.content}>{item.content}</Text>
+                                        <Text style={styleNoticiaSingle.content}>{item.excerpt}</Text>
                                     </View>
                                 </View>
                             </TouchableHighlight>
@@ -54,7 +55,7 @@ function listaNoticias({navigation}) {
     )
 }
 
-function singleNoticias() {
+export function singleNoticias({navigation, route}) {
     return(
         <View
             style={styleSingle.container}
@@ -62,15 +63,16 @@ function singleNoticias() {
             <SafeAreaView
                 style={styleSingle.safearea}
             >
+                <Header click={navigation.openDrawer} />
                 <ScrollView>
                     <View style={styleSingle.boxContainer}>
-                        <Text style={styleSingle.titlePage}>Notícias</Text>
-                        <Text style={styleSingle.titleNew}>Parceria entre o Programa Emboço Social e o Conleste</Text>
+                    <Text style={styleSingle.titleNew} onPress={() => navigation.goBack(null)}>VOLTAR </Text>
+                    <Text style={styleSingle.titlePage}>Notícias</Text>
+                        <Text style={styleSingle.titleNew}>{route.params.title} </Text>
                         <View>
-                            <Text style={styleSingle.aboutParagraph}>Ao longo de sua história, a marca solidificou a posição no mercado de fabricação de argamassas industrializadas, atendendo a grandes construtoras e lojas de materiais de construção no Rio de Janeiro e Grande Rio, tendo sempre o compromisso de preservar o meio-ambiente.</Text>
-                            <Text style={styleSingle.aboutParagraph}>Oferecemos uma vasta linha de argamassas, formuladas para atender as necessidades de cada fase da obra: assentamento, emboço, revestimento, contrapiso, chapisco e argamassas colantes.</Text>
-                            <Text style={styleSingle.aboutParagraph}>Nossa produção conta com matérias-primas de alta qualidade e um eficiente processo de fabricação automatizado, além de acompanhamento laboriatorial contínuo. Tudo para garantir a excelência que você precisa.</Text>
-                            <Text style={styleSingle.aboutParagraph}>As principais vantagens de nossos produtos são a economia, a qualidade e a praticidade: eles vêm prontos para uso, basta adicionar água.</Text>
+                            <Text style={styleSingle.aboutParagraph}>
+                                {route.params.content}
+                            </Text>
                         </View>
                         <Image source={require('../../assets/example/example-multimedia.png')} style={styleSingle.imageText} />
                     </View>
@@ -80,15 +82,25 @@ function singleNoticias() {
     )
 }
 
-const listProducts = () => {
+const News = ({navigation, route}) => {
+    useEffect(() => {
+        
+        if (route.params) {
+            navigation.navigate('Notícia', route.params);
+        }
+    }, [route.params]);
     return (
-        <Stack.Navigator initialRouteName="Todas as Notícias">
-            <Stack.Screen name="Todas as Notícias" component={listaNoticias} />
+        <Stack.Navigator initialRouteName="Todas as Notícias" screenOptions={{
+          headerShown: false
+        }}>
+            <Stack.Screen name="Todas as Notícias" component={listaNoticias} route={
+                route.params
+            } />
             <Stack.Screen name="Notícia" component={singleNoticias} />
         </Stack.Navigator>
     );
 }
-export default listProducts;
+export default News;
 
 const styles = StyleSheet.create({
     container: {

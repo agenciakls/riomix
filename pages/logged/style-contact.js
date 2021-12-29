@@ -84,5 +84,11 @@ const styles = StyleSheet.create({
           fontSize: 17,
       },
       
+  messageErro: {
+    textAlign: 'center',
+    paddingVertical: 15,
+    backgroundColor: '#F9D71C',
+    color: '#565656'
+},
 });
 export default styles;

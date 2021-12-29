@@ -17,6 +17,15 @@ const styles = StyleSheet.create({
         color: '#198942',
 
     },
+    
+    titleFormCenter: {
+        fontSize: 18,
+        fontWeight: '700',
+        color: '#198942',
+        textAlign: 'center',
+        marginBottom: 10
+
+    },
     input: {
         marginVertical: 10,
         borderColor: '#cdcdcd',
@@ -83,6 +92,12 @@ const styles = StyleSheet.create({
             fontSize: 14,
             fontWeight: '700',
             paddingHorizontal: 5,
+        },
+        messageErro: {
+            textAlign: 'center',
+            paddingVertical: 15,
+            backgroundColor: '#F9D71C',
+            color: '#565656'
         },
 });
 

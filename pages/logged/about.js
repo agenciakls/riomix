@@ -1,14 +1,8 @@
 
 import React from 'react'
-import { View, StyleSheet, SafeAreaView, Platform, Text, Pressable, Image, ScrollView } from 'react-native'
+import { View, SafeAreaView, Text, Image, ScrollView } from 'react-native'
 import { WebView } from 'react-native-webview';
 import Header from '../modules/header';
-
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-
-import {StatusBar} from 'react-native';
-import { faBezierCurve } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './style-about';
 
