@@ -16,7 +16,10 @@ const HomeLogin = ({navigation}) => {
         if (username.length === 0 || password.length === 0) {
             handleErrorChange('Preencha usuário e senha para continuar!');
         } else {
-            await login(username, password);
+            const callLogin = await login(username, password);
+            if (!callLogin.status) {
+                handleErrorChange(callLogin.message);
+            }
         }
     };
     async function HandleLoginAnonymous() {

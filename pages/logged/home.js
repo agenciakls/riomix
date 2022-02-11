@@ -98,6 +98,16 @@ export const ContentResume = () => {
                     <Text style={styles.nameTextRecolhimento}>Famílias Beneficiadas</Text>
                 </View>
             </View>
+            
+
+            <View style={styles.detailRecolhimento}>
+                <View style={styles.valueRecolhimento} >
+                    <Text style={styles.valueTextRecolhimento}>{(resume) ? resume.coeficiente : 0}</Text>
+                </View>
+                <View style={styles.nameRecolhimento}>
+                    <Text style={styles.nameTextRecolhimento}>Coeficiente</Text>
+                </View>
+            </View>
         </View>
     );
 }

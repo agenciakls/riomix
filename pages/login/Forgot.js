@@ -44,7 +44,6 @@ export const modifyPassword = ({navigation, route}) => {
                         email: route.params
                     }
                 });
-                console.log(response.data);
                 if (response.data.status) {
                     navigation.navigate('Sucesso');
                 }
@@ -107,7 +106,6 @@ export const verifyForgot = ({navigation, route}) => {
                     email: route.params
                 }
             });
-            console.log(response.data);
             if (response.data.status) {
                 navigation.navigate('Alterar Senha', route.params);
             }
@@ -158,7 +156,6 @@ const sendEmail = ({navigation}) => {
                     email: email,
                 }
             });
-            console.log(response.data);
             if (response.data.status) {
                 
                 navigation.navigate('Confirmar', email);

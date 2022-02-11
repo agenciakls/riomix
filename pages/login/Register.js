@@ -46,7 +46,6 @@ export const registerVerify = ({navigation, route}) => {
                     username: route.params
                 }
             });
-            console.log(response.data);
             if (response.data.status) {
                 navigation.navigate('Cadastro Realizado');
             }

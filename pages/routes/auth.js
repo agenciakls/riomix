@@ -37,10 +37,10 @@ export function AuthProvider({ children }) {
             await AsyncStorage.setItem('@token', responseLogin.token);
             
             return responseLogin;
+            
         }
-        else {
-            return false;
-        }
+        
+        return responseLogin;
     }
     function loginAnonymous() {
         setUser(null);
