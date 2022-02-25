@@ -16,7 +16,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-export const NewsResume = ({navigation}) => {
+export const NewsResume = ({ navigation }) => {
 
     const { user } = useContext(AuthContext);
     const [data, setData] = useState([]);
@@ -33,7 +33,7 @@ export const NewsResume = ({navigation}) => {
             <Text style={styles.titleNoticias}>Últimas Notícias</Text>
             {
                 data.map((singleData) => {
-                    return(
+                    return (
                         <Pressable key={singleData.id} style={styles.singleNoticias} onPress={() => navigation.navigate('Notícias', singleData)}>
                             <Image style={styles.newsImg} source={require('../../assets/example/example-news-1.png')} />
                             <Text style={styles.newsText}>{singleData.title}</Text>
@@ -51,7 +51,7 @@ export const NewsResume = ({navigation}) => {
 };
 export const ContentResume = () => {
     const { user } = useContext(AuthContext);
-    
+
     const [resume, setResume] = useState(null);
     useEffect(() => {
         async function loadResume() {
@@ -66,53 +66,55 @@ export const ContentResume = () => {
         }
         loadResume();
     }, [user]);
-    return(
+    return (
         <View>
             <Text style={styles.titleRecolhimento}>Recolhimento Geral</Text>
+            <View style={styles.listRecolhimento}>
 
-            <View style={styles.detailRecolhimento}>
-                <View style={styles.valueRecolhimento} >
-                    <Text style={styles.valueTextRecolhimento}>{(resume) ? resume.devolucoes : 0}</Text>
+                <View style={styles.detailRecolhimento}>
+                    <View style={styles.valueRecolhimento} >
+                        <Text style={styles.valueTextRecolhimento}>{(resume) ? resume.devolucoes : 0}</Text>
+                    </View>
+                    <View style={styles.nameRecolhimento}>
+                        <Text style={styles.nameTextRecolhimento}>Devoluções</Text>
+                    </View>
                 </View>
-                <View style={styles.nameRecolhimento}>
-                    <Text style={styles.nameTextRecolhimento}>Devoluções</Text>
-                </View>
-            </View>
-            
 
-            <View style={styles.detailRecolhimento}>
-                <View style={styles.valueRecolhimento} >
-                    <Text style={styles.valueTextRecolhimento}>{(resume) ? resume.economia : 0}</Text>
-                </View>
-                <View style={styles.nameRecolhimento}>
-                    <Text style={styles.nameTextRecolhimento}>Economia</Text>
-                </View>
-            </View>
-            
 
-            <View style={styles.detailRecolhimento}>
-                <View style={styles.valueRecolhimento} >
-                    <Text style={styles.valueTextRecolhimento}>{(resume) ? resume.familias : 0}</Text>
+                <View style={styles.detailRecolhimento}>
+                    <View style={styles.valueRecolhimento} >
+                        <Text style={styles.valueTextRecolhimento}>{(resume) ? resume.economia : 0}</Text>
+                    </View>
+                    <View style={styles.nameRecolhimento}>
+                        <Text style={styles.nameTextRecolhimento}>Economia</Text>
+                    </View>
                 </View>
-                <View style={styles.nameRecolhimento}>
-                    <Text style={styles.nameTextRecolhimento}>Famílias Beneficiadas</Text>
-                </View>
-            </View>
-            
 
-            <View style={styles.detailRecolhimento}>
-                <View style={styles.valueRecolhimento} >
-                    <Text style={styles.valueTextRecolhimento}>{(resume) ? resume.coeficiente : 0}</Text>
+
+                <View style={styles.detailRecolhimento}>
+                    <View style={styles.valueRecolhimento} >
+                        <Text style={styles.valueTextRecolhimento}>{(resume) ? resume.familias : 0}</Text>
+                    </View>
+                    <View style={styles.nameRecolhimento}>
+                        <Text style={styles.nameTextRecolhimento}>Famílias Beneficiadas</Text>
+                    </View>
                 </View>
-                <View style={styles.nameRecolhimento}>
-                    <Text style={styles.nameTextRecolhimento}>Coeficiente</Text>
+
+
+                <View style={styles.detailRecolhimento}>
+                    <View style={styles.valueRecolhimento} >
+                        <Text style={styles.valueTextRecolhimento}>{(resume) ? resume.coeficiente : 0}</Text>
+                    </View>
+                    <View style={styles.nameRecolhimento}>
+                        <Text style={styles.nameTextRecolhimento}>Coeficiente de Devolução</Text>
+                    </View>
                 </View>
             </View>
         </View>
     );
 }
 
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
     const { user } = useContext(AuthContext);
     return (
         <View
@@ -126,36 +128,41 @@ const Home = ({navigation}) => {
                     <View style={styles.boxContainer}>
                         <View style={styles.boxWelcome}>
                             <Text style={styles.messageWelcome}>Olá, Bem vindo</Text>
-                            {(user) ? <Text style={styles.messageName}>{user.name}</Text>: null}
+                            {(user) ? <Text style={styles.messageName}>{user.name}</Text> : null}
                         </View>
-                    
-                        {(user) ? 
+
+                        {(user) ?
+                            <View>
                                 <View style={styles.containerRecolhimento}>
+
+
                                     <ContentResume />
-                                    <View style={styles.boxIcones}>
-                                        <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('Recolhimentos')}>
-                                            <Image style={styles.imagesIcones} source={require('../../assets/icons/individual.png')} />
-                                            <Text style={styles.textIcons}>BSC Individual</Text>
-                                        </Pressable>
-                                        
-                                        <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('Recolhimentos')}>
-                                            <Image style={styles.imagesIcones} source={require('../../assets/icons/geral.png')} />
-                                            <Text style={styles.textIcons}>BSC Geral</Text>
-                                        </Pressable>
-                                        
-                                        <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('Recolhimentos')}>
-                                            <Image style={styles.imagesIcones} source={require('../../assets/icons/graficos.png')} />
-                                            <Text style={styles.textIcons}>Gráfico</Text>
-                                        </Pressable>
-                                        
-                                        <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('Recolhimentos')}>
-                                            <Image style={styles.imagesIcones} source={require('../../assets/icons/pcis.png')} />
-                                            <Text style={styles.textIcons}>PCIs</Text>
-                                        </Pressable>
-                                    </View>
                                 </View>
+
+                                <View style={styles.boxIcones}>
+                                    <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('Recolhimentos')}>
+                                        <Image style={styles.imagesIcones} source={require('../../assets/icons/individual.png')} />
+                                        <Text style={styles.textIcons}>BSC Individual</Text>
+                                    </Pressable>
+
+                                    <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('Recolhimentos')}>
+                                        <Image style={styles.imagesIcones} source={require('../../assets/icons/geral.png')} />
+                                        <Text style={styles.textIcons}>BSC Geral</Text>
+                                    </Pressable>
+
+                                    <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('Recolhimentos')}>
+                                        <Image style={styles.imagesIcones} source={require('../../assets/icons/graficos.png')} />
+                                        <Text style={styles.textIcons}>Gráfico</Text>
+                                    </Pressable>
+
+                                    <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('Recolhimentos')}>
+                                        <Image style={styles.imagesIcones} source={require('../../assets/icons/pcis.png')} />
+                                        <Text style={styles.textIcons}>PCIs</Text>
+                                    </Pressable>
+                                </View>
+                            </View>
                             : null
-                                
+
                         }
 
                         <View style={styles.containerLinhas}>
@@ -165,13 +172,13 @@ const Home = ({navigation}) => {
                                 <Pressable style={styles.buttonLinhas}>
                                     <Text style={styles.buttonLinhasTitle} onPress={() => navigation.navigate('Produtos')}>VER MAIS</Text>
                                 </Pressable>
-                            
+
                             </View>
                             <View style={styles.linhasBoxImage}>
                                 <Image style={styles.linhasImage} source={require('../../assets/img/linha-tradicional.png')} />
                             </View>
                         </View>
-                        
+
                         <NewsResume navigation={navigation} />
 
                         <View style={styles.buttonsInfo}>
@@ -199,7 +206,7 @@ const Home = ({navigation}) => {
                                 <FontAwesome style={styles.iconSocial} name="globe" onPress={() => Linking.openURL('http://riomix.com.br/')} />
                             </View>
                         </View>
-                        
+
                     </View>
                 </ScrollView>
             </SafeAreaView>
