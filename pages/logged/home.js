@@ -140,10 +140,6 @@ const Home = ({ navigation }) => {
                                 </View>
 
                                 <View style={styles.boxIcones}>
-                                    <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('Recolhimentos')}>
-                                        <Image style={styles.imagesIcones} source={require('../../assets/icons/individual.png')} />
-                                        <Text style={styles.textIcons}>BSC Individual</Text>
-                                    </Pressable>
 
                                     <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('Recolhimentos')}>
                                         <Image style={styles.imagesIcones} source={require('../../assets/icons/geral.png')} />
@@ -158,6 +154,11 @@ const Home = ({ navigation }) => {
                                     <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('Recolhimentos')}>
                                         <Image style={styles.imagesIcones} source={require('../../assets/icons/pcis.png')} />
                                         <Text style={styles.textIcons}>PCIs</Text>
+                                    </Pressable>
+
+                                    <Pressable style={styles.boxIconesRecolhimento} onPress={() => navigation.navigate('Recolhimentos')}>
+                                        <Image style={styles.imagesIcones} source={require('../../assets/icons/individual.png')} />
+                                        <Text style={styles.textIcons}>BSC Mensal</Text>
                                     </Pressable>
                                 </View>
                             </View>
