@@ -3,13 +3,9 @@ import React, { useState } from 'react'
 import { View, SafeAreaView, ScrollView, Text, Pressable, TextInput, Linking } from 'react-native'
 import Header from '../modules/header';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-
 import { FontAwesome } from '@expo/vector-icons';
 import styles from './style-contact';
 
-import AuthContext from '../routes/auth';
 import api from '../routes/api';
 
 const Contact = ({navigation}) => {

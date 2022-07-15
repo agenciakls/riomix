@@ -11,11 +11,6 @@ import AuthContext from '../routes/auth';
 
 import api from '../routes/api'
 
-
-import { createStackNavigator } from '@react-navigation/stack';
-
-const Stack = createStackNavigator();
-
 export const NewsResume = ({ navigation }) => {
 
     const { user } = useContext(AuthContext);

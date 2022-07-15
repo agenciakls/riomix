@@ -8,7 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Home from '../logged/home';
 import About from '../logged/about';
-import Products from '../logged/listProducts';
+import ListProducts from '../logged/listProducts';
 import Recicler from '../logged/recicler';
 import News from '../logged/listNews';
 import Media from '../logged/media';
@@ -45,7 +45,7 @@ const RouteLogged = ({ navigation }) => {
         <Drawer.Navigator initialRouteName="Home" drawerPosition="right">
             <Drawer.Screen name="Início" component={Home} />
             <Drawer.Screen name="Quem Somos" component={About} />
-            <Drawer.Screen name="Produtos" component={Products} />
+            <Drawer.Screen name="Produtos" component={ListProducts} />
             {
                 (user) ? <Drawer.Screen name="Recolhimentos" component={Recicler} />: null
             }
